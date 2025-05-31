@@ -117,10 +117,11 @@ onMounted(() => {
               <p>Доля жировой массы: 18.9%</p>
               <p>Сумма кожно-жировых складок: 70 мм</p>
 
+              <Divider type="dashed" />
               <div class="card flex justify-center">
                 <Chart type="pie" :data="chartData" :options="chartOptions" class="w-full md:w-[30rem]" />
               </div>
-
+              <Divider type="dashed" />
               <div class="card flex justify-center">
                 <Chart type="radar" :data="chartRadarData" :options="chartRadarOptions" class="w-full md:w-[30rem]" />
               </div>
