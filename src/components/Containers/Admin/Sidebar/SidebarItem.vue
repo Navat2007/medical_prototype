@@ -32,7 +32,7 @@ const handleItemClick = () => {
         :class="{
         'bg-primary-100 text-primary-500': sidebarStore.page === item.label || sidebarStore.selected === item.label,
         'py-3 px-4': sidebarStore.isSidebarFull,
-        'px-6.5': !sidebarStore.isSidebarFull,
+        'px-4': !sidebarStore.isSidebarFull,
       }"
     >
       <Icon size="24">
