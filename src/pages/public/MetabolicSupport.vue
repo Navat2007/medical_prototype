@@ -8,6 +8,10 @@ import iconMed from "@assets/icons/08.svg";
 import iconWei from "@assets/icons/07.svg";
 import iconHei from "@assets/icons/06.svg";
 import iconBody from "@assets/images/body.svg";
+import iconTime from "@assets/icons/11.svg";
+import iconFood from "@assets/icons/12.svg";
+import iconPos from "@assets/icons/13.svg";
+import iconAten from "@assets/icons/14.svg";
 
 ChartJS.register(Title, Tooltip, Legend, ArcElement, BarElement, CategoryScale, LinearScale);
 
@@ -60,61 +64,61 @@ const skinfoldData = {
                 <h2 class="font-medium text-2xl text-gray-900">Антропометрия</h2>
                 <p>Анализ состава тела (метод калиперометрии)</p>
             </div>
-            <div class="bg-white p-4 rounded-xl shadow-card grid grid-cols-2 md:grid-cols-3 gap-x-6 gap-y-4">
-                <div class="flex items-center gap-3">
-                    <div class="flex-shrink-0 bg-primary-100 p-2 rounded-lg">
-                        <Icon size="24">
-                            <iconFio class="text-primary-500" />
-                        </Icon>
+            <div class="grid md:grid-cols-5 gap-4">
+                <!-- Информация -->
+                <div class="col-span-3 bg-white p-4 rounded-xl shadow-card grid md:grid-cols-2 gap-4">
+                    <div class="flex items-center gap-3">
+                        <div class="flex-shrink-0 bg-primary-100 p-2 rounded-lg">
+                            <Icon size="24">
+                                <iconFio class="text-primary-500" />
+                            </Icon>
+                        </div>
+                        <div>
+                            <p class="text-muted-foreground text-sm">ФИО:</p>
+                            <p class="text-gray-900 font-medium">Иванов Алексей Сергеевич</p>
+                        </div>
                     </div>
-                    <div>
-                        <p class="text-muted-foreground text-sm">ФИО:</p>
-                        <p class="text-gray-900 font-medium">Иванов Алексей Сергеевич</p>
+                    <div class="flex items-center gap-3">
+                        <div class="flex-shrink-0 bg-primary-100 p-2 rounded-lg">
+                            <Icon size="24">
+                                <iconSpo class="text-primary-500" />
+                            </Icon>
+                        </div>
+                        <div>
+                            <p class="text-muted-foreground text-sm">Вид спорта:</p>
+                            <p class="text-gray-900 font-medium">Гимнастика</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="flex-shrink-0 bg-primary-100 p-2 rounded-lg">
+                            <Icon size="24">
+                                <iconMed class="text-primary-500" />
+                            </Icon>
+                        </div>
+                        <div>
+                            <p class="text-muted-foreground text-sm">Дата рождения:</p>
+                            <p class="text-gray-900 font-medium">05.05.2005 (20 лет)</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="flex-shrink-0 bg-primary-100 p-2 rounded-lg">
+                            <Icon size="24">
+                                <iconHei class="text-primary-500" />
+                            </Icon>
+                        </div>
+                        <div>
+                            <p class="text-muted-foreground text-sm">Рост:</p>
+                            <p class="text-gray-900 font-medium">163 см</p>
+                        </div>
+                        <div>
+                            <p class="text-muted-foreground text-sm">Вес:</p>
+                            <p class="text-gray-900 font-medium">55,4 кг</p>
+                        </div>
                     </div>
                 </div>
-                <div class="flex items-center gap-3">
-                    <div class="flex-shrink-0 bg-primary-100 p-2 rounded-lg">
-                        <Icon size="24">
-                            <iconSpo class="text-primary-500" />
-                        </Icon>
-                    </div>
-                    <div>
-                        <p class="text-muted-foreground text-sm">Вид спорта:</p>
-                        <p class="text-gray-900 font-medium">Гимнастика</p>
-                    </div>
-                </div>
-                <div class="flex items-center gap-3">
-                    <div class="flex-shrink-0 bg-primary-100 p-2 rounded-lg">
-                        <Icon size="24">
-                            <iconMed class="text-primary-500" />
-                        </Icon>
-                    </div>
-                    <div>
-                        <p class="text-muted-foreground text-sm">Дата рождения:</p>
-                        <p class="text-gray-900 font-medium">05.05.2005 (20 лет)</p>
-                    </div>
-                </div>
-                <div class="flex items-center gap-3">
-                    <div class="flex-shrink-0 bg-primary-100 p-2 rounded-lg">
-                        <Icon size="24">
-                            <iconHei class="text-primary-500" />
-                        </Icon>
-                    </div>
-                    <div>
-                        <p class="text-muted-foreground text-sm">Рост:</p>
-                        <p class="text-gray-900 font-medium">163 см</p>
-                    </div>
-                </div>
-                <div class="flex items-center gap-3">
-                    <div class="flex-shrink-0 bg-primary-100 p-2 rounded-lg">
-                        <Icon size="24">
-                            <iconWei class="text-primary-500" />
-                        </Icon>
-                    </div>
-                    <div>
-                        <p class="text-muted-foreground text-sm">Вес:</p>
-                        <p class="text-gray-900 font-medium">55,4 кг</p>
-                    </div>
+                <!-- График процента -->
+                <div class="col-span-2 bg-white rounded-xl shadow-card px-5 py-3 p-4">
+                    <Bar class="w-full" :data="skinfoldData" :options="chartOptions" />
                 </div>
             </div>
             <div class="grid gap-4 grid-cols-2 md:grid-cols-4">
@@ -193,6 +197,211 @@ const skinfoldData = {
         <div class="bg-white p-4 rounded-xl shadow-card flex flex-col gap-4">
             <div>
                 <h2 class="font-medium text-2xl text-gray-900">Диетология</h2>
+                <p>Анализ нутриентов, метаболизма и лабораторных показателей</p>
+            </div>
+            <!-- Условия теста -->
+            <div class="bg-white p-4 rounded-xl shadow-card grid gap-4">
+                <h3 class="font-medium text-gray-900">Условия теста</h3>
+                <div class="grid md:grid-cols-4 gap-4">
+                    <div class="flex items-center gap-3">
+                        <div class="flex-shrink-0 bg-gray-100 p-2 rounded-lg">
+                            <Icon size="24">
+                                <iconTime class="text-primary-500" />
+                            </Icon>
+                        </div>
+                        <div>
+                            <p class="text-muted-foreground text-sm">Период от приёма пищи</p>
+                            <p class="text-gray-900 font-medium">>8 часов</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="flex-shrink-0 bg-gray-100 p-2 rounded-lg">
+                            <Icon size="24">
+                                <iconFood class="text-primary-500" />
+                            </Icon>
+                        </div>
+                        <div>
+                            <p class="text-muted-foreground text-sm">Период покоя</p>
+                            <p class="text-gray-900 font-medium">>1 час</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="flex-shrink-0 bg-gray-100 p-2 rounded-lg">
+                            <Icon size="24">
+                                <iconPos class="text-primary-500" />
+                            </Icon>
+                        </div>
+                        <div>
+                            <p class="text-muted-foreground text-sm">Позиция при тесте</p>
+                            <p class="text-gray-900 font-medium">В покое</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Гормональный профиль -->
+            <div class="flex flex-col gap-4 bg-white p-4 rounded-xl shadow-card">
+                <h3 class="font-medium text-gray-900">Гормональный профиль</h3>
+                <div class="flex items-center justify-between p-4 rounded-lg bg-secondary-100 border border-secondary-300">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 flex items-center justify-center rounded-md bg-secondary-200">
+                            <Icon size="24">
+                                <iconAten class="text-secondary-500" />
+                            </Icon>
+                        </div>
+                        <div>
+                            <div class="text-sm text-muted-color">B-CrossLaps</div>
+                            <div class="flex items-baseline">
+                                <span class="text-xl font-semibold text-secondary-500">1.23</span>
+                                <span class="ml-1 text-sm text-muted-color">ng/ml</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-xs text-muted-color">Норма</div>
+                        <div class="text-sm text-muted-color">0.01–0.941</div>
+                    </div>
+                </div>
+                <div class="p-4 rounded-lg bg-gray-100">
+                    <p class="text-sm text-muted-color">
+                        B-CrossLaps (CTX) - маркер резорбции костной ткани. Повышенный уровень может указывать на ускоренную костную резорбцию и риск потери костной массы.
+                    </p>
+                </div>
+            </div>
+            <!-- Общий анализ крови -->
+            <div class="flex flex-col gap-4 bg-white p-4 rounded-xl shadow-card">
+                <h3 class="row-span-full font-medium text-gray-900">Общий анализ крови</h3>
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="flex flex-col gap-4">
+                        <div class="flex flex-col">
+                            <div class="flex justify-between items-baseline">
+                                <span class="text-sm text-muted-color">лейкоцитов, /литр</span>
+                                <div class="flex items-center gap-1">
+                                    <span class="text-base font-semibold text-[#F59E0B]">3,91 10*9</span>
+                                    <span class="text-xs text-muted-color"> (норма 4.01 - 9.75) </span>
+                                </div>
+                            </div>
+                            <div class="mt-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                                <div class="h-full bg-[#F59E0B]" style="width: 60%"></div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col">
+                            <div class="flex justify-between items-baseline">
+                                <span class="text-sm text-muted-color">сегментоядерных лейкоцитов, /литр</span>
+                                <div class="flex items-center gap-1">
+                                    <span class="text-base font-semibold text-[#F59E0B]">1,66 10*9</span>
+                                    <span class="text-xs text-muted-color"> (норма 1.92 - 6.44) </span>
+                                </div>
+                            </div>
+                            <div class="mt-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                                <div class="h-full bg-[#F59E0B]" style="width: 60%"></div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col">
+                            <div class="flex justify-between items-baseline">
+                                <span class="text-sm text-muted-color">кислая фосфатаза,  Ед/л</span>
+                                <div class="flex items-center gap-1">
+                                    <span class="text-base font-semibold text-[#EF5350]">07.5</span>
+                                    <span class="text-xs text-muted-color"> (норма 0 - 6.5) </span>
+                                </div>
+                            </div>
+                            <div class="mt-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                                <div class="h-full bg-[#EF5350]" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col">
+                            <div class="flex justify-between items-baseline">
+                                <span class="text-sm text-muted-color">Щелочная фосфатаза,  Ед/л</span>
+                                <div class="flex items-center gap-1">
+                                    <span class="text-base font-semibold text-[#EF5350]">128</span>
+                                    <span class="text-xs text-muted-color"> (норма 55-124) </span>
+                                </div>
+                            </div>
+                            <div class="mt-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                                <div class="h-full bg-[#EF5350]" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col">
+                            <div class="flex justify-between items-baseline">
+                                <span class="text-sm text-muted-color">Витамин Д</span>
+                                <div class="flex items-center gap-1">
+                                    <span class="text-base font-semibold text-[#F59E0B]">18.9</span>
+                                    <span class="text-xs text-muted-color"> (норма более 25 нг/мл) </span>
+                                </div>
+                            </div>
+                            <div class="mt-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                                <div class="h-full bg-[#F59E0B]" style="width: 60%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="">
+                        <Bar :data="skinfoldData" :options="chartOptions" />
+                    </div>
+                </div>
+            </div>
+            <div class="grid gap-4 md:grid-cols-2">
+                <!-- Метаболизм -->
+                <div class="bg-white p-4 rounded-xl shadow-card">
+                    <Bar :data="skinfoldData" :options="chartOptions" />
+                </div>
+                <!-- Субстраты -->
+                <div class="flex flex-col gap-4 bg-white p-4 rounded-xl shadow-card">
+                    <h3 class="row-span-full font-medium text-gray-900">Субстраты</h3>
+                    <div class="">
+                        <Bar :data="skinfoldData" :options="chartOptions" />
+                    </div>
+                    <div class="grid grid-cols-3 gap-4">
+                        <div class="flex flex-col items-center p-3 rounded-xl shadow-card bg-secondary-100">
+                            <div class="w-3 h-3 rounded-full mb-1 bg-secondary-500"></div>
+                            <p class="text-xs text-center text-muted-color">Липиды</p>
+                            <p class="text-lg font-semibold text-center text-gray-900">1077</p>
+                            <p class="text-xs text-center text-muted-color">ккал / 55.7%</p>
+                        </div>
+                        <div class="flex flex-col items-center p-3 rounded-xl shadow-card bg-[#ecffed]">
+                            <div class="w-3 h-3 rounded-full mb-1 bg-[#66BB6A]"></div>
+                            <p class="text-xs text-center text-muted-color">Углеводы</p>
+                            <p class="text-lg font-semibold text-center text-gray-900">895</p>
+                            <p class="text-xs text-center text-muted-color">ккал / 44.3%</p>
+                        </div>
+                        <div class="flex flex-col items-center p-3 rounded-xl shadow-card bg-primary-100">
+                            <div class="w-3 h-3 rounded-full mb-1 bg-primary-500"></div>
+                            <p class="text-xs text-center text-muted-color">Белки</p>
+                            <p class="text-lg font-semibold text-center text-gray-900">0</p>
+                            <p class="text-xs text-center text-muted-color">ккал / 0%</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <!-- Метаболизм по метаболографа -->
+            <div class="bg-white p-4 rounded-xl shadow-card">
+                <h3 class="row-span-full font-medium text-gray-900 mb-4">Метаболизм по метаболографа</h3>
+                <div class="grid gap-4 md:grid-cols-2">
+                    <div class="">
+                        <Bar :data="skinfoldData" :options="chartOptions" />
+                    </div>
+                    <div class="flex flex-col gap-4">
+                        <div>
+                            <div class="text-sm text-muted-color">RMR</div>
+                            <div class="flex items-baseline">
+                                <span class="text-2xl font-semibold text-primary-500">1972</span>
+                                <span class="ml-1 text-sm text-[#6B7280]">ккал/день</span>
+                            </div>
+                            <div class="text-xs text-primary-500">Быстрый метаболизм</div>
+                        </div>
+                        <div>
+                            <div class="text-sm text-muted-color">RQ</div>
+                            <div class="flex items-baseline">
+                                <span class="text-2xl font-semibold text-primary-500">0.84</span>
+                            </div>
+                            <div class="text-xs text-primary-500">утилизация жиров и углеводов</div>
+                        </div>
+                        <div class="p-3 rounded-lg bg-primary-100">
+                            <p class="text-xs text-primary-500">
+                                RMR (Resting Metabolic Rate) - скорость метаболизма в состоянии покоя. RQ (Respiratory Quotient) - дыхательный коэффициент, отражающий тип
+                                используемого субстрата.
+                            </p>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
     </main>
