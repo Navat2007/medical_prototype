@@ -1,44 +1,116 @@
 <script setup>
-
+import iconAtom from "@assets/icons/16.svg";
 </script>
 
 <template>
-  <main class="flex-1 p-6">
-    <h1 class="text-2xl font-bold text-blue-700 mb-4">Метаболический профиль</h1>
-
-    <div class="bg-white p-4 rounded shadow-sm">
-      <div class="grid grid-cols-2 md:grid-cols-4 gap-4 text-sm text-gray-700 mb-4">
-        <div><strong>ФИО:</strong><br />Иванов Алексей Сергеевич</div>
-        <div><strong>Вид спорта:</strong><br />Гимнастика</div>
-        <div><strong>Дата рождения:</strong><br />05.05.2005 (20 лет)</div>
-        <div><strong>Рост:</strong><br />163 см</div>
-        <div><strong>Вес:</strong><br />55,4 кг</div>
-        <div><strong>ИМТ:</strong><br /><span class="text-blue-600 font-bold text-lg">20</span></div>
-        <div><strong>Сумма складок:</strong><br /><span class="text-red-600 font-bold text-lg">70 мм</span></div>
-        <div><strong>Масса мышц:</strong><br />25,3 кг</div>
-        <div><strong>Масса жира:</strong><br />4,8 кг</div>
-      </div>
-
-      <div class="grid grid-cols-1 md:grid-cols-2 gap-4">
-        <div>
-          <h2 class="font-semibold mb-2">Кожно-жировые складки</h2>
-          <img src="https://via.placeholder.com/400x200?text=Bar+Chart" class="rounded border" />
+    <main class="flex-1 flex flex-col gap-5">
+        <h1 class="text-3xl font-medium text-primary-500">Молекулярная медицина</h1>
+        <div class="bg-white p-4 rounded-xl shadow-card flex flex-col gap-4">
+            <div class="flex flex-wrap items-center gap-3 mb-4">
+                <div class="text-sm text-muted-color mr-2">Типы генотипов:</div>
+                <div class="flex items-center">
+                    <span class="inline-block w-3 h-3 rounded-full bg-primary-500 mr-1"></span>
+                    <span class="text-sm">Типичный</span>
+                </div>
+                <div class="flex items-center">
+                    <span class="inline-block w-3 h-3 rounded-full bg-orange-500 mr-1"></span>
+                    <span class="text-sm">Гетерозиготный</span>
+                </div>
+                <div class="flex items-center">
+                    <span class="inline-block w-3 h-3 rounded-full bg-secondary-500 mr-1"></span>
+                    <span class="text-sm">Редкий/Риск</span>
+                </div>
+            </div>
+            <div class="overflow-x-auto">
+                <table class="w-full">
+                    <thead>
+                        <tr class="border-b border-border">
+                            <th class="text-left py-3 text-muted font-medium">Маркер</th>
+                            <th class="text-left py-3 text-muted font-medium">Генотип</th>
+                            <th class="text-left py-3 text-muted font-medium">Функция</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        <tr class="border-b border-border last:border-0">
+                            <td class="py-3">
+                                <div class="flex items-center">
+                                    <iconAtom class="w-6 h-6 mr-2 text-primary-500" />
+                                    <div>
+                                        <span class="font-medium">ACTN3</span>
+                                        <span class="text-muted-color ml-1">rs1815739</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="py-3">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm text-primary-500 bg-primary-100">CC</span>
+                            </td>
+                            <td class="py-3 text-muted-foreground">Скоростно-силовые показатели</td>
+                        </tr>
+                        <tr class="border-b border-border last:border-0">
+                            <td class="py-3">
+                                <div class="flex items-center">
+                                    <iconAtom class="w-6 h-6 mr-2 text-primary-500" />
+                                    <div>
+                                        <span class="font-medium">ACE</span>
+                                        <span class="text-muted-color ml-1">rs4646994</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="py-3">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm text-orange-500 bg-orange-100">ID</span>
+                            </td>
+                            <td class="py-3 text-muted-foreground">Выносливость/сила</td>
+                        </tr>
+                        <tr class="border-b border-border last:border-0">
+                            <td class="py-3">
+                                <div class="flex items-center">
+                                    <iconAtom class="w-6 h-6 mr-2 text-primary-500" />
+                                    <div>
+                                        <span class="font-medium">PPARA</span>
+                                        <span class="text-muted-color ml-1">rs4253778</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="py-3">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm text-orange-500 bg-orange-100">GC</span>
+                            </td>
+                            <td class="py-3 text-muted-foreground">Выносливость</td>
+                        </tr>
+                        <tr class="border-b border-border last:border-0">
+                            <td class="py-3">
+                                <div class="flex items-center">
+                                    <iconAtom class="w-6 h-6 mr-2 text-primary-500" />
+                                    <div>
+                                        <span class="font-medium">PPARGC1A</span>
+                                        <span class="text-muted-color ml-1">rs8192678</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="py-3">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm text-orange-500 bg-orange-100">Gly/Ser</span>
+                            </td>
+                            <td class="py-3 text-muted-foreground">Аэробная выносливость</td>
+                        </tr>
+                        <tr class="border-b border-border last:border-0">
+                            <td class="py-3">
+                                <div class="flex items-center">
+                                    <iconAtom class="w-6 h-6 mr-2 text-primary-500" />
+                                    <div>
+                                        <span class="font-medium">AMPD1</span>
+                                        <span class="text-muted-color ml-1">(rs17602729)</span>
+                                    </div>
+                                </div>
+                            </td>
+                            <td class="py-3">
+                                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm text-primary-500 bg-primary-100">CC</span>
+                            </td>
+                            <td class="py-3 text-muted-foreground">Восстановление после нагрузок</td>
+                        </tr>
+                    </tbody>
+                </table>
+            </div>
         </div>
-        <div>
-          <h2 class="font-semibold mb-2">Обхваты</h2>
-          <img src="https://via.placeholder.com/200x300?text=Body+Outline" class="rounded border mx-auto" />
-          <ul class="mt-2 text-sm space-y-1">
-            <li>🔵 Плечо: 24,8 см</li>
-            <li>🔵 Предплечье: 22,5 см</li>
-            <li>🔴 Бедро: 52,5 см</li>
-            <li>🟠 Голень: 36 см</li>
-          </ul>
-        </div>
-      </div>
-    </div>
-  </main>
+    </main>
 </template>
 
-<style scoped>
-
-</style>
+<style scoped></style>
