@@ -3,10 +3,15 @@ import {ref, markRaw, onMounted} from "vue";
 import {onClickOutside} from '@vueuse/core';
 import {useAuthStore, useSidebarStore} from '@stores';
 import {Icon} from '@vicons/utils'
-import {Home, Building, Group, Car, TrafficEvent, Folders, ArrowLeft, EventsAlt} from '@vicons/carbon';
+import {ArrowLeft} from '@vicons/carbon';
+import iconAnal from "@assets/icons/05.svg";
+import iconMet from "@assets/icons/04.svg";
+import iconMol from "@assets/icons/03.svg";
+import iconPsi from "@assets/icons/02.svg";
+import iconBio from "@assets/icons/01.svg";
 
 import SidebarItem from "@components/Containers/Admin/Sidebar/SidebarItem.vue";
-import Logo from "@assets/images/logo.png";
+import Logo from "@assets/images/profile.png";
 
 const {user} = useAuthStore();
 
@@ -19,31 +24,31 @@ const menuGroups = ref([
     name: 'МЕНЮ',
     menuItems: [
       {
-        icon: markRaw(Home),
+        icon: markRaw(iconAnal),
         label: 'Аналитика',
         route: '/analytics',
         visible: true
       },
       {
-        icon: markRaw(Home),
+        icon: markRaw(iconMet),
         label: 'Метаболическая поддержка',
         route: '/metabolic-support',
         visible: true
       },
       {
-        icon: markRaw(Home),
+        icon: markRaw(iconMol),
         label: 'Молекулярная медицина',
         route: '/molecular-medicine',
         visible: true
       },
       {
-        icon: markRaw(Home),
+        icon: markRaw(iconPsi),
         label: 'Психофизиология',
         route: '/psychophysiology',
         visible: true
       },
       {
-        icon: markRaw(Home),
+        icon: markRaw(iconBio),
         label: 'Биомеханика',
         route: '/biomechanics',
         visible: true
@@ -74,36 +79,35 @@ function toggleSidebar() {
 
 <template>
   <aside
-      class="absolute left-0 top-0 z-999 flex h-screen flex-col delay-200 duration-300 ease-linear dark:bg-boxdark lg:static lg:translate-x-0"
+      class="absolute shadow-card left-0 top-0 z-999 flex h-screen flex-col delay-200 duration-300 ease-linear lg:static lg:translate-x-0 bg-white bg-image-sidebar"
       :class="{
         'translate-x-0': sidebarStore.isSidebarOpen,
         '-translate-x-full': !sidebarStore.isSidebarOpen,
-        'w-72': sidebarStore.isSidebarFull,
+        'w-80': sidebarStore.isSidebarFull,
         'w-20': !sidebarStore.isSidebarFull,
       }"
       ref="target"
   >
     <div class="flex flex-col overflow-y-hidden h-full">
 
-      <div class="flex flex-col items-center mt-8">
+      <div class="flex flex-col items-center bg-white rounded-xl shadow-card p-3 m-3">
         <Transition name="bounce">
-          <img src="https://via.placeholder.com/96" class="rounded-full mb-2"/>
+          <img :src="Logo" class="rounded-xl w-10/12 mb-2"/>
         </Transition>
-
         <Transition name="fade">
           <div v-if="showLogo">
-            <div class="text-center text-sm font-semibold">ИВАНОВ</div>
-            <div class="text-center text-sm text-gray-500">Алексей Сергеевич</div>
+            <div class="text-center text-lg font-semibold">ИВАНОВ</div>
+            <div class="text-center text-gray-500">Алексей Сергеевич</div>
           </div>
         </Transition>
       </div>
 
       <!-- Sidebar Menu -->
       <div class="flex flex-auto flex-col duration-300 ease-linear overflow-y-auto">
-        <nav class="mt-2 py-4 lg:mt-4 ">
+        <nav class=" m-3">
           <template v-for="menuGroup in menuGroups" :key="menuGroup.name">
             <div>
-              <ul class="mb-6 flex flex-col gap-1.5">
+              <ul class="flex flex-col gap-3">
                 <SidebarItem
                     v-for="(menuItem, index) in menuGroup.menuItems"
                     :item="menuItem"
@@ -141,6 +145,13 @@ function toggleSidebar() {
 </template>
 
 <style scoped>
+.bg-image-sidebar {
+  background-image: url('@/assets/images/sidebar-bg.jpg');
+  background-size: contain;
+  background-position: bottom center;
+  background-repeat: no-repeat;
+}
+
 @keyframes bounce-in {
   0% {
     transform: scale(0);

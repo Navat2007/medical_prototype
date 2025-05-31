@@ -5,7 +5,7 @@ import Logo from "@assets/images/logo.png";
 import {useSidebarStore} from "@stores/sidebar.js";
 import {RouterLink} from "vue-router";
 import DarkModeSwitcher from "@components/DarkModeSwitcher.vue";
-import DropdownUser from "@components/DropdownUser.vue";
+import logo from "@/assets/images/logo.png";
 
 
 const authStore = useAuthStore();
@@ -15,9 +15,9 @@ const { toggleSidebar } = useSidebarStore();
 
 <template>
   <header
-      class="sticky top-0 z-50 flex w-full bg-white drop-shadow-sm dark:bg-boxdark dark:drop-shadow-none"
+      class="sticky top-0 z-50 flex w-full bg-white shadow-card"
   >
-    <div class="flex flex-grow items-center justify-between py-4.5 px-4.5 shadow-md md:px-6 2xl:px-11">
+    <div class="flex flex-grow items-center justify-between px-3 py-6 shadow-md md:px-6 2xl:px-11">
       <div class="flex items-center gap-2 sm:gap-4 lg:hidden">
         <!-- Hamburger Toggle BTN -->
         <button
@@ -64,14 +64,12 @@ const { toggleSidebar } = useSidebarStore();
         </div>
       </div>
 
-      <div class="hidden sm:block"></div>
-
-      <div class="flex items-center gap-3 2xsm:gap-7">
-        <ul class="flex items-center gap-2 2xsm:gap-4">
-          <li>
-            <DarkModeSwitcher />
-          </li>
-        </ul>
+      <div class="flex-auto flex items-center gap-3 justify-between">
+        <h1 class="text-gray-900 flex flex-col flex-auto">
+          <span class="font-medium text-lg uppercase">Федеральный регистр</span>
+          <span class="text-sm">здоровья российских спортсменов</span>
+        </h1>
+        <img class="flex-none" :src="logo" alt="" width="108">
       </div>
     </div>
   </header>

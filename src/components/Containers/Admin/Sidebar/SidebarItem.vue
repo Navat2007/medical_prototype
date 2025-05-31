@@ -27,11 +27,11 @@ const handleItemClick = () => {
   <li v-if="props.item.visible">
     <router-link
         :to="item.route"
-        class="group relative flex items-center gap-2.5 rounded-sm py-2 font-medium text-primary-50 duration-300 ease-in-out hover:bg-primary-500"
+        class="rounded-xl shadow-card p-3 flex items-center gap-3 duration-300 ease-in-out hover:text-primary-500 hover:shadow-cardHover"
         @click.prevent="handleItemClick"
         :class="{
-        'bg-blue-300': sidebarStore.page === item.label || sidebarStore.selected === item.label,
-        'px-8': sidebarStore.isSidebarFull,
+        'bg-primary-100 text-primary-500': sidebarStore.page === item.label || sidebarStore.selected === item.label,
+        'py-3 px-4': sidebarStore.isSidebarFull,
         'px-6.5': !sidebarStore.isSidebarFull,
       }"
     >
