@@ -8,6 +8,10 @@ import ToastService from 'primevue/toastservice';
 import {definePreset} from "@primevue/themes";
 import ConfirmationService from 'primevue/confirmationservice';
 
+import Card from 'primevue/card'
+import TabView from 'primevue/tabview'
+import TabPanel from 'primevue/tabpanel'
+
 import App from '@/App.vue'
 import '@/style.css'
 import 'primeicons/primeicons.css'
@@ -283,6 +287,11 @@ app.use(PrimeVue, {
 });
 app.use(ConfirmationService);
 app.use(ToastService);
+
+// Регистрируем компоненты с префиксом 'p-'
+app.component('p-card', Card)
+app.component('p-tabView', TabView)
+app.component('p-tabPanel', TabPanel)
 
 app.directive('tooltip', Tooltip);
 
