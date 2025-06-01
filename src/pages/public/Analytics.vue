@@ -61,11 +61,11 @@ import iconCheck from "@assets/icons/18.svg";
                     </div>
                 </div>
             </div>
+            <div><FinalRadar /></div>
             <div>
                 <RadarComparison />
             </div>
             <div><AthleteRadar /></div>
-            <div><FinalRadar /></div>
         </div>
         <div class="grid gap-4 bg-white p-4 rounded-xl shadow-card">
             <h2 class="font-medium text-2xl text-gray-900">Сводка по генетическому анализу</h2>
