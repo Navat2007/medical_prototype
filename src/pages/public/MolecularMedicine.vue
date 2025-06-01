@@ -11,18 +11,19 @@ import iconAten from "@assets/icons/14.svg";
 import iconMosh from "@assets/icons/15.svg";
 import iconMet from "@assets/icons/04.svg";
 import iconAtom from "@assets/icons/16.svg";
-import { Activity, Dumbbell, Bone, Apple, AlertCircle, Brain } from 'lucide-vue-next'
+import {Activity, Dumbbell, Bone, Apple, AlertCircle, Brain} from 'lucide-vue-next'
 import GeneticTable from "@components/Tables/MolecularMedicine/GeneticTable.vue";
+import RadarHenotip from "@components/Charts/Analytics/RadarHenotip.vue";
 
 const activeTab = ref('endurance');
 
 const tabs = [
-  { value: 'endurance', label: 'Выносливость', icon: Activity },
-  { value: 'power', label: 'Сила', icon: Dumbbell },
-  { value: 'structure', label: 'Прочность', icon: Bone },
-  { value: 'nutrition', label: 'Питание', icon: Apple },
-  { value: 'injuries', label: 'Травмы', icon: AlertCircle },
-  { value: 'psychology', label: 'Психология', icon: Brain }
+  {value: 'endurance', label: 'Выносливость', icon: Activity},
+  {value: 'power', label: 'Сила', icon: Dumbbell},
+  {value: 'structure', label: 'Прочность', icon: Bone},
+  {value: 'nutrition', label: 'Питание', icon: Apple},
+  {value: 'injuries', label: 'Травмы', icon: AlertCircle},
+  {value: 'psychology', label: 'Психология', icon: Brain}
 ];
 
 const items = {
@@ -333,6 +334,7 @@ const items = {
   <main class="flex-1 flex flex-col gap-5">
     <h1 class="text-3xl font-medium text-primary-500">Молекулярная медицина</h1>
     <div class="bg-white p-4 rounded-xl shadow-card flex flex-col gap-4">
+      <h2 class="font-medium text-2xl text-gray-900">Сводка по генетическому анализу</h2>
       <!-- Информация -->
       <div class="bg-white p-4 rounded-xl shadow-card grid md:grid-cols-2 gap-4">
         <div class="flex items-center gap-3">
@@ -380,114 +382,78 @@ const items = {
           </div>
         </div>
       </div>
-      <div class="bg-white p-4 rounded-xl shadow-card flex flex-col gap-4">
-        <div class="flex flex-wrap items-center gap-3 mb-4">
-          <div class="text-sm text-muted-color mr-2">Типы генотипов:</div>
-          <div class="flex items-center">
-            <span class="inline-block w-3 h-3 rounded-full bg-primary-500 mr-1"></span>
-            <span class="text-sm">Типичный</span>
-          </div>
-          <div class="flex items-center">
-            <span class="inline-block w-3 h-3 rounded-full bg-orange-500 mr-1"></span>
-            <span class="text-sm">Гетерозиготный</span>
-          </div>
-          <div class="flex items-center">
-            <span class="inline-block w-3 h-3 rounded-full bg-secondary-500 mr-1"></span>
-            <span class="text-sm">Редкий/Риск</span>
+      <div class="grid md:grid-cols-5 gap-4">
+        <div class="col-span-4 bg-white p-4 rounded-xl shadow-card flex flex-col gap-4">
+          <h3 class="font-medium text-gray-900">Анализируемые генетические варианты</h3>
+          <ul class="grid md:grid-cols-3">
+            <li class="col-span-full flex flex-col gap-2 py-2 border-b border-gray-200">
+              <span class="text-sm">Всего проанализировано:</span>
+              <p class="font-medium text-lg text-gray-900">112 вариантов</p>
+            </li>
+            <li class="flex flex-col gap-2 py-2 border-b border-gray-200">
+              <div class="flex items-center">
+                <span class="inline-block w-2 h-2 rounded-full bg-primary-500 mr-1"></span>
+                <span class="text-sm">Значимых аллелей:</span>
+              </div>
+              <p class="font-medium text-lg text-primary-500">28</p>
+            </li>
+            <li class="flex flex-col gap-2 py-2 border-b border-gray-200">
+              <div class="flex items-center">
+                <span class="inline-block w-2 h-2 rounded-full bg-[#66BB6A] mr-1"></span>
+                <span class="text-sm">Благоприятных:</span>
+              </div>
+              <p class="font-medium text-lg text-[#66BB6A]">18</p>
+            </li>
+            <li class="flex flex-col gap-2 py-2 border-b border-gray-200">
+              <div class="flex items-center">
+                <span class="inline-block w-2 h-2 rounded-full bg-secondary-500 mr-1"></span>
+                <span class="text-sm">Неблагоприятных:</span>
+              </div>
+              <p class="font-medium text-lg text-secondary-500">10</p>
+            </li>
+          </ul>
+          <div class="col-span-full flex gap-1 items-start p-4 rounded-lg bg-[#ecffed]">
+            <iconCheck class="w-7 h-7 text-muted text-[#66BB6A]"/>
+            <p class="text-sm text-muted-color">
+              <span class="font-medium text-base block">Не обнаружено патогенных вариантов.</span>
+              В геноме спортсмена не обнаружено клинически значимых патогенных вариантов, связанных со спортивной
+              деятельностью.
+            </p>
           </div>
         </div>
-        <div class="overflow-x-auto">
-          <table class="w-full">
-            <thead>
-            <tr class="border-b border-border">
-              <th class="text-left py-3 text-muted font-medium">Маркер</th>
-              <th class="text-left py-3 text-muted font-medium">Генотип</th>
-              <th class="text-left py-3 text-muted font-medium">Функция</th>
-            </tr>
-            </thead>
-            <tbody>
-            <tr class="border-b border-border last:border-0">
-              <td class="py-3">
-                <div class="flex items-center">
-                  <iconAtom class="w-6 h-6 mr-2 text-primary-500"/>
-                  <div>
-                    <span class="font-medium">ACTN3</span>
-                    <span class="text-muted-color ml-1">rs1815739</span>
-                  </div>
-                </div>
-              </td>
-              <td class="py-3">
-                <span
-                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm text-primary-500 bg-primary-100">CC</span>
-              </td>
-              <td class="py-3 text-muted-foreground">Скоростно-силовые показатели</td>
-            </tr>
-            <tr class="border-b border-border last:border-0">
-              <td class="py-3">
-                <div class="flex items-center">
-                  <iconAtom class="w-6 h-6 mr-2 text-primary-500"/>
-                  <div>
-                    <span class="font-medium">ACE</span>
-                    <span class="text-muted-color ml-1">rs4646994</span>
-                  </div>
-                </div>
-              </td>
-              <td class="py-3">
-                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm text-orange-500 bg-orange-100">ID</span>
-              </td>
-              <td class="py-3 text-muted-foreground">Выносливость/сила</td>
-            </tr>
-            <tr class="border-b border-border last:border-0">
-              <td class="py-3">
-                <div class="flex items-center">
-                  <iconAtom class="w-6 h-6 mr-2 text-primary-500"/>
-                  <div>
-                    <span class="font-medium">PPARA</span>
-                    <span class="text-muted-color ml-1">rs4253778</span>
-                  </div>
-                </div>
-              </td>
-              <td class="py-3">
-                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm text-orange-500 bg-orange-100">GC</span>
-              </td>
-              <td class="py-3 text-muted-foreground">Выносливость</td>
-            </tr>
-            <tr class="border-b border-border last:border-0">
-              <td class="py-3">
-                <div class="flex items-center">
-                  <iconAtom class="w-6 h-6 mr-2 text-primary-500"/>
-                  <div>
-                    <span class="font-medium">PPARGC1A</span>
-                    <span class="text-muted-color ml-1">rs8192678</span>
-                  </div>
-                </div>
-              </td>
-              <td class="py-3">
-                <span class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm text-orange-500 bg-orange-100">Gly/Ser</span>
-              </td>
-              <td class="py-3 text-muted-foreground">Аэробная выносливость</td>
-            </tr>
-            <tr class="border-b border-border last:border-0">
-              <td class="py-3">
-                <div class="flex items-center">
-                  <iconAtom class="w-6 h-6 mr-2 text-primary-500"/>
-                  <div>
-                    <span class="font-medium">AMPD1</span>
-                    <span class="text-muted-color ml-1">(rs17602729)</span>
-                  </div>
-                </div>
-              </td>
-              <td class="py-3">
-                <span
-                    class="inline-flex items-center px-2.5 py-0.5 rounded-full text-sm text-primary-500 bg-primary-100">CC</span>
-              </td>
-              <td class="py-3 text-muted-foreground">Восстановление после нагрузок</td>
-            </tr>
-            </tbody>
-          </table>
+        <div class="bg-white p-4 rounded-xl shadow-card flex flex-col gap-4">
+          <h3 class="font-medium text-gray-900">Генетический профиль</h3>
+          <div>
+            <RadarHenotip/>
+          </div>
         </div>
       </div>
-      <div class="bg-white rounded-xl shadow-sm p-6 mb-6">
+      <div class="bg-white p-4 rounded-xl shadow-card flex flex-col gap-4">
+        <h3 class="font-medium text-gray-900">Технический отчет</h3>
+        <ul class="">
+          <li class="flex items-center gap-2 py-2">
+            <span class="inline-block w-2 h-2 rounded-full bg-primary-500 mr-1"></span>
+            <p class="text-muted-color">Метод исследования:</p>
+            <p class="font-medium text-gray-900">полногеномное секвенирование (Whole Genome Sequencing)</p>
+          </li>
+          <li class="flex items-center gap-2 py-2">
+            <span class="inline-block w-2 h-2 rounded-full bg-primary-500 mr-1"></span>
+            <p class="text-muted-color">Количество нуклеотидов:</p>
+            <p class="font-medium text-gray-900">≥90 млрд</p>
+          </li>
+          <li class="flex items-center gap-2 py-2">
+            <span class="inline-block w-2 h-2 rounded-full bg-primary-500 mr-1"></span>
+            <p class="text-muted-color">Тип прочтения:</p>
+            <p class="font-medium text-gray-900">150 п.н., парно-концевое</p>
+          </li>
+          <li class="flex items-center gap-2 py-2">
+            <span class="inline-block w-2 h-2 rounded-full bg-primary-500 mr-1"></span>
+            <p class="text-muted-color">Качество выходных данных секвенирования:</p>
+            <p class="font-medium text-gray-900">≥90% Q20, ≥80% Q30</p>
+          </li>
+        </ul>
+      </div>
+      <div class="bg-white rounded-xl shadow-card p-4">
         <div class="mb-6 flex flex-wrap gap-2">
           <button
               v-for="tab in tabs"
@@ -498,7 +464,7 @@ const items = {
           activeTab === tab.value ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700'
         ]"
           >
-            <component :is="tab.icon" class="w-4 h-4 mr-2" />
+            <component :is="tab.icon" class="w-4 h-4 mr-2"/>
             {{ tab.label }}
           </button>
         </div>
@@ -508,7 +474,7 @@ const items = {
             Гены, связанные с выносливостью, определяют эффективность аэробного метаболизма,
             плотность капилляров и митохондрий, а также способность к транспорту кислорода.
           </p>
-          <GeneticTable :items="items['Выносливость']" />
+          <GeneticTable :items="items['Выносливость']"/>
         </div>
 
         <div v-else-if="activeTab === 'power'">
@@ -516,7 +482,7 @@ const items = {
             Гены, связанные с силовыми качествами, влияют на тип мышечных волокон,
             скорость сокращения мышц и способность развивать взрывную силу.
           </p>
-          <GeneticTable :items="items['Сила (мощность)']" />
+          <GeneticTable :items="items['Сила (мощность)']"/>
         </div>
 
         <div v-else-if="activeTab === 'structure'">
@@ -524,7 +490,7 @@ const items = {
             Гены, связанные со структурной прочностью, определяют качество соединительной
             ткани, гибкость и устойчивость к механическим нагрузкам.
           </p>
-          <GeneticTable :items="items['Сила (прочность)']" />
+          <GeneticTable :items="items['Сила (прочность)']"/>
         </div>
 
         <div v-else-if="activeTab === 'nutrition'">
@@ -532,7 +498,7 @@ const items = {
             Гены, связанные с метаболизмом пищевых веществ, влияют на усвоение питательных
             веществ, склонность к накоплению жира и пищевые потребности.
           </p>
-          <GeneticTable :items="items['Питание и ожирение']" />
+          <GeneticTable :items="items['Питание и ожирение']"/>
         </div>
 
         <div v-else-if="activeTab === 'injuries'">
@@ -540,7 +506,7 @@ const items = {
             Гены, связанные с риском травм, влияют на прочность связок, сухожилий и костей,
             а также на скорость восстановления после повреждений.
           </p>
-          <GeneticTable :items="items['Спортивные травмы']" />
+          <GeneticTable :items="items['Спортивные травмы']"/>
         </div>
 
         <div v-else-if="activeTab === 'psychology'">
@@ -548,7 +514,7 @@ const items = {
             Гены, связанные с психологическими характеристиками, влияют на стрессоустойчивость,
             когнитивные функции и психологическую адаптацию к нагрузкам.
           </p>
-          <GeneticTable :items="items['Психологические особенности']" />
+          <GeneticTable :items="items['Психологические особенности']"/>
         </div>
       </div>
     </div>
