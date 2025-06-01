@@ -14,7 +14,7 @@ const { toggleSidebar } = useSidebarStore();
 
 <template>
     <header class="sticky top-0 z-50 flex w-full bg-white shadow-card">
-        <div class="flex flex-grow items-center justify-between px-3 py-6 shadow-md">
+        <div class="flex flex-grow items-center justify-between gap-4 px-4 py-4 shadow-md">
             <div class="flex items-center gap-2 sm:gap-4 lg:hidden">
                 <!-- Hamburger Toggle BTN -->
                 <button class="z-999 block rounded-sm border border-stroke bg-white p-1.5 shadow-sm dark:border-strokedark dark:bg-boxdark lg:hidden" @click="toggleSidebar">
@@ -45,15 +45,7 @@ const { toggleSidebar } = useSidebarStore();
                         </span>
                     </span>
                 </button>
-                <!-- Hamburger Toggle BTN -->
-                <div class="flex items-center gap-2 lg:hidden">
-                    <Avatar icon="pi pi-user" class="mr-2" size="xlarge" shape="circle" />
-                    <div>
-                        <span class="hidden sm:block self-center text-2xl font-semibold whitespace-nowrap text-gray-800 dark:text-white"> ФИО </span>
-                    </div>
-                </div>
             </div>
-
             <div class="flex-auto flex items-center gap-3 justify-between">
                 <h1 class="text-gray-900 flex flex-col flex-auto">
                     <span class="font-medium text-lg uppercase">Федеральный регистр</span>
