@@ -50,7 +50,7 @@ const chartJumpHeighData = {
   labels: ['1', '2', '3', '4', '5', '6', '7', '8', '9', '10'],
   datasets: [
     {
-      label: 'Было',
+      label: '12.03.2025',
       data: [14, 24, 24, 25, 25, 25, 25, 24, 24, 25],
       backgroundColor: 'transparent',
       borderColor: '#D32F2F',
@@ -58,7 +58,7 @@ const chartJumpHeighData = {
       grouped: false,
     },
     {
-      label: 'Дата',
+      label: '25.05.2025',
       data: [14, 20, 24, 24, 25, 25, 25, 24, 24, 25],
       backgroundColor: '#3B82F6',
       grouped: false,
