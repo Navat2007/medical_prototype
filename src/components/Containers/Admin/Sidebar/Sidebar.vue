@@ -24,12 +24,6 @@ const menuGroups = ref([
         name: "МЕНЮ",
         menuItems: [
             {
-                icon: markRaw(iconAnal),
-                label: "Аналитика",
-                route: "/analytics",
-                visible: true,
-            },
-            {
                 icon: markRaw(iconMet),
                 label: "Метаболический профиль",
                 route: "/metabolic-support",
@@ -53,6 +47,12 @@ const menuGroups = ref([
                 route: "/biomechanics",
                 visible: true,
             },
+          {
+            icon: markRaw(iconAnal),
+            label: "Аналитика",
+            route: "/analytics",
+            visible: true,
+          },
         ],
     },
 ]);

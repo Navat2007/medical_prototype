@@ -71,9 +71,8 @@ import VueSpeedometer from "vue-speedometer";
       <div>
         <AthleteRadar/>
       </div>
-
     </div>
-    <div class="bg-white p-4 rounded-xl shadow-card grid md:grid-cols-3 gap-4">
+    <div class="bg-white p-4 rounded-xl shadow-card grid md:grid-cols-2 gap-4">
       <div class="flex flex-col gap-4 items-center">
         <span>Декабрь 2023</span>
         <VueSpeedometer
