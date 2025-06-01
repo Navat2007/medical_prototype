@@ -46,14 +46,14 @@ const chartData = {
     },
     {
       label: 'Ряд 2',
-      data: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+      data: [1.0, 0.73, 1.03, 0.96, 1.03, 1.03],
       backgroundColor: 'rgba(251, 191, 36, 0.2)',
       borderColor: '#F59E0B',
       pointBackgroundColor: '#F59E0B'
     },
     {
       label: 'Ряд 3',
-      data: [1.0, 1.0, 1.0, 1.0, 1.0, 1.0],
+      data: [1.04, 0.82, 0.83, 1.13, 0.97, 0.99],
       backgroundColor: 'rgba(107, 114, 128, 0.2)',
       borderColor: '#6B7280',
       pointBackgroundColor: '#6B7280'
