@@ -41,6 +41,7 @@ const chartData = {
 const chartOptions = {
     responsive: true,
     plugins: {
+        datalabels: { display: false },
         legend: {
             position: "bottom",
         },
