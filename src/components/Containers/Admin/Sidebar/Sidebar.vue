@@ -90,9 +90,9 @@ function toggleSidebar() {
     >
         <div class="flex flex-col overflow-y-hidden h-full">
             <!-- Profile -->
-            <div class="flex flex-col items-center bg-white rounded-xl shadow-card p-3 m-3 delay-200 duration-300 ease-in-out" :class="{ 'p-0': !sidebarStore.isSidebarFull }">
+            <div class="flex flex-col items-center bg-white rounded-xl shadow-card p-3 m-3 delay-200 duration-300 ease-in-out" :class="{ '!p-0': !sidebarStore.isSidebarFull }">
                 <Transition name="bounce">
-                    <img :src="Logo" class="rounded-xl w-10/12 mb-2 delay-200 duration-300 ease-in-out" :class="{ 'w-full mb-0': !sidebarStore.isSidebarFull }" />
+                    <img :src="Logo" class="rounded-xl w-10/12 mb-2 delay-200 duration-300 ease-in-out" :class="{ 'w-full !mb-0': !sidebarStore.isSidebarFull }" />
                 </Transition>
                 <Transition name="fade">
                     <div v-if="showLogo">
