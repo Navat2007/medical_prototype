@@ -6,6 +6,7 @@ import iconFio from "@assets/icons/10.svg";
 import iconSpo from "@assets/icons/09.svg";
 import iconMed from "@assets/icons/08.svg";
 import iconHei from "@assets/icons/06.svg";
+import path_titles from "@assets/images/path_titles.svg";
 
 ChartJS.register(Title, Tooltip, Legend, ArcElement, BarElement, CategoryScale, LinearScale, ChartDataLabels);
 
@@ -173,6 +174,10 @@ const chartJumpHeighOptions = {
             </div>
             <div class="bg-white p-4 rounded-xl shadow-card flex flex-col gap-4">
                 <Bar :data="chartJumpHeighData" :options="chartJumpHeighOptions" />
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-card gap-4">
+                <h3 class="font-medium text-gray-900 mb-6">Фазы стартового ускорения</h3>
+                <path_titles class="w-full h-auto" />
             </div>
         </div>
     </main>
