@@ -13,17 +13,16 @@ const chartOptions = {
     },
 };
 
-const skinfoldData = {
-    labels: ["на спине под лапаткой", "на трицепсе", "на бицепсе", "на предплечье", "на животе", "на бедре", "на голени", "на груди (у мужчин)"],
+const simpleData = {
+    labels: ["уровень активации ЦНС", "уровень безошибочности", "уровень быстродействия", "уровень стабильности реакции"],
     datasets: [
         {
-            label: "Толщина (мм)",
-            data: [6.5, 14, 5.5, 4.5, 8.0, 10.5, 12, "-"],
-            backgroundColor: "#D32F2F",
+            label: "Кол-во набранных баллов",
+            data: [3, 5, 3, 5],
+            backgroundColor: "#078AD2",
         },
     ],
 };
-
 </script>
 
 <template>
@@ -77,7 +76,7 @@ const skinfoldData = {
                     </table>
                 </div>
                 <!-- прогресс бар -->
-                <Bar :data="skinfoldData" :options="chartOptions" />
+                <Bar :data="simpleData" :options="chartOptions" />
             </div>
             <div class="bg-white p-4 rounded-xl shadow-card flex flex-col gap-4">
                 <h3 class="font-medium text-gray-900">Сложная зрительно-моторная реакция</h3>
@@ -125,7 +124,7 @@ const skinfoldData = {
                     </table>
                 </div>
                 <!-- прогресс бар -->
-                <!-- график с колбами -->
+                <!-- прогресс бар еще один -->
             </div>
         </div>
     </main>
