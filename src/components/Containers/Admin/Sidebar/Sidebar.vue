@@ -4,7 +4,7 @@ import { onClickOutside } from "@vueuse/core";
 import { useAuthStore, useSidebarStore } from "@stores";
 import { Icon } from "@vicons/utils";
 import { ArrowLeft } from "@vicons/carbon";
-import iconAnal from "@assets/icons/05.svg";
+import iconAnal from "@assets/icons/17.svg";
 import iconMet from "@assets/icons/04.svg";
 import iconMol from "@assets/icons/03.svg";
 import iconPsi from "@assets/icons/02.svg";
@@ -24,15 +24,15 @@ const menuGroups = ref([
         name: "МЕНЮ",
         menuItems: [
             {
-                icon: markRaw(iconMet),
-                label: "Метаболический профиль",
-                route: "/metabolic-support",
-                visible: true,
-            },
-            {
                 icon: markRaw(iconAnal),
                 label: "Аналитика",
                 route: "/analytics",
+                visible: true,
+            },
+            {
+                icon: markRaw(iconMet),
+                label: "Метаболический профиль",
+                route: "/metabolic-support",
                 visible: true,
             },
             {

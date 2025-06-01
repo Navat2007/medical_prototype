@@ -122,6 +122,7 @@ const chartReactionOptions = {
     <main class="flex-1 flex flex-col gap-5">
         <h1 class="text-3xl font-medium text-primary-500">Психофизиология</h1>
         <div class="bg-white p-4 rounded-xl shadow-card grid md:grid-cols-2 gap-4">
+            <h2 class="col-span-full font-medium text-2xl text-gray-900">Оценка сенсомоторных реакций</h2>
             <!-- Информация -->
             <div class="col-span-full bg-white p-4 rounded-xl shadow-card grid md:grid-cols-2 gap-4">
                 <div class="flex items-center gap-3">
@@ -169,7 +170,6 @@ const chartReactionOptions = {
                     </div>
                 </div>
             </div>
-            <h2 class="col-span-full font-medium text-2xl text-gray-900">Оценка сенсомоторных реакций</h2>
             <div class="bg-white p-4 rounded-xl shadow-card flex flex-col gap-4">
                 <h3 class="font-medium text-gray-900">Простая зрительно-моторная реакция</h3>
                 <div class="overflow-x-auto">
