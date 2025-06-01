@@ -346,7 +346,7 @@ const items = {
                     </div>
                     <div>
                         <p class="text-muted-foreground text-sm">Вид спорта:</p>
-                        <p class="text-gray-900 font-medium">Гимнастика</p>
+                        <p class="text-gray-900 font-medium">Лёгкая атлетика</p>
                     </div>
                     <div>
                         <p class="text-muted-foreground text-sm">Разряд:</p>
