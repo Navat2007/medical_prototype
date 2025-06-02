@@ -1,5 +1,7 @@
 <template>
-    <Radar :data="chartData" :options="chartOptions" />
+    <div class="bg-white p-4 rounded-xl shadow-card">
+        <Radar :data="chartData" :options="chartOptions" />
+    </div>
 </template>
 
 <script setup>

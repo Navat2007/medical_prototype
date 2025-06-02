@@ -70,7 +70,7 @@ const chartMassData = {
     labels: ["Масса мышц, в %", "Масса жира, в %"],
     datasets: [
         {
-            data: [25.3, 4.8],
+            data: [45.6, 18.9],
             backgroundColor: ["#078ad2", "#d32f2f"],
             borderWidth: 0,
             cutout: "50%",
