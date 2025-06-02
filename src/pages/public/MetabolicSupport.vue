@@ -339,7 +339,7 @@ const chartEnergyOptions = {
                                 <p class="font-medium">36 см</p>
                             </li>
                         </ul>
-                        <iconBody class="flex-none" />
+                        <iconBody width="100" class="flex-none" />
                     </div>
                 </div>
             </div>

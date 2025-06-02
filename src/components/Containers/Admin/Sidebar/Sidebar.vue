@@ -81,7 +81,7 @@ function toggleSidebar() {
         :class="{
             'translate-x-0': sidebarStore.isSidebarOpen,
             '-translate-x-full': !sidebarStore.isSidebarOpen,
-            'w-1/5 min-w-65 max-w-70': sidebarStore.isSidebarFull,
+            'w-80': sidebarStore.isSidebarFull,
             'w-20': !sidebarStore.isSidebarFull,
         }"
         ref="target"
