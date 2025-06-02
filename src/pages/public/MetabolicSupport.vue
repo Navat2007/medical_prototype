@@ -663,9 +663,9 @@ const chartEnergyOptions = {
                 </div>
             </div>
             <div class="grid gap-4 md:grid-cols-5">
-                <!-- Метаболизм по метаболографа -->
+                <!-- Метаболизм -->
                 <div class="col-span-3 bg-white p-4 rounded-xl shadow-card">
-                    <h3 class="row-span-full font-medium text-gray-900 mb-4">Метаболизм по метаболографа</h3>
+                    <h3 class="row-span-full font-medium text-gray-900 mb-4">Метаболизм</h3>
                     <div class="grid gap-4 md:grid-cols-2">
                         <div>
                             <VueSpeedometer
