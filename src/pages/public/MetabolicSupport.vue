@@ -546,6 +546,39 @@ const chartEnergyOptions = {
                 <h2 class="font-medium text-2xl text-gray-900">Диетология</h2>
                 <p>Анализ нутриентов, метаболизма и лабораторных показателей</p>
             </div>
+            <!-- Условия теста -->
+            <div class="content-start bg-white p-4 rounded-xl shadow-card grid gap-4">
+                <h3 class="font-medium text-gray-900">Условия теста</h3>
+                <div class="grid md:grid-cols-3 gap-4 max-w-5xl">
+                    <div class="flex items-center gap-3">
+                        <div class="flex-shrink-0 bg-gray-100 p-2 rounded-lg">
+                            <iconTime class="w-6 h-6 text-primary-500" />
+                        </div>
+                        <div>
+                            <p class="text-muted-foreground text-sm">Период от приёма пищи</p>
+                            <p class="text-gray-900 font-medium">>8 часов</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="flex-shrink-0 bg-gray-100 p-2 rounded-lg">
+                            <iconFood class="w-6 h-6 text-primary-500" />
+                        </div>
+                        <div>
+                            <p class="text-muted-foreground text-sm">Период покоя</p>
+                            <p class="text-gray-900 font-medium">>1 час</p>
+                        </div>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <div class="flex-shrink-0 bg-gray-100 p-2 rounded-lg">
+                            <iconPos class="w-6 h-6 text-primary-500" />
+                        </div>
+                        <div>
+                            <p class="text-muted-foreground text-sm">Позиция при тесте</p>
+                            <p class="text-gray-900 font-medium">В покое</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
             <div class="grid md:grid-cols-5 gap-4">
                 <!-- Общий анализ крови -->
                 <div class="col-span-4 flex flex-col gap-4 bg-white p-4 rounded-xl shadow-card">
@@ -713,66 +746,31 @@ const chartEnergyOptions = {
                     </div>
                 </div>
             </div>
-            <div class="grid gap-4 md:grid-cols-2">
-                <!-- Гормональный профиль -->
-                <div class="flex flex-col gap-4 bg-white p-4 rounded-xl shadow-card">
-                    <h3 class="font-medium text-gray-900">Гормональный профиль</h3>
-                    <div class="flex items-center justify-between p-4 rounded-lg bg-secondary-100 border border-secondary-300">
-                        <div class="flex items-center gap-3">
-                            <div class="w-10 h-10 flex items-center justify-center rounded-md bg-secondary-200">
-                                <iconAten class="w-6 h-6 text-secondary-500" />
-                            </div>
-                            <div>
-                                <div class="text-sm text-muted-color">B-CrossLaps</div>
-                                <div class="flex items-baseline">
-                                    <span class="text-xl font-semibold text-secondary-500">1.23</span>
-                                    <span class="ml-1 text-sm text-muted-color">ng/ml</span>
-                                </div>
-                            </div>
+            <!-- Гормональный профиль -->
+            <div class="flex flex-col gap-4 bg-white p-4 rounded-xl shadow-card">
+                <h3 class="font-medium text-gray-900">Гормональный профиль</h3>
+                <div class="flex items-center justify-between p-4 rounded-lg bg-secondary-100 border border-secondary-300">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 flex items-center justify-center rounded-md bg-secondary-200">
+                            <iconAten class="w-6 h-6 text-secondary-500" />
                         </div>
-                        <div class="text-right">
-                            <div class="text-xs text-muted-color">Норма</div>
-                            <div class="text-sm text-muted-color">0.01–0.941</div>
+                        <div>
+                            <div class="text-sm text-muted-color">B-CrossLaps</div>
+                            <div class="flex items-baseline">
+                                <span class="text-xl font-semibold text-secondary-500">1.23</span>
+                                <span class="ml-1 text-sm text-muted-color">ng/ml</span>
+                            </div>
                         </div>
                     </div>
-                    <div class="p-4 rounded-lg bg-gray-100">
-                        <p class="text-sm text-muted-color">
-                            B-CrossLaps (CTX) - маркер резорбции костной ткани. Повышенный уровень может указывать на ускоренную костную резорбцию и риск потери костной массы.
-                        </p>
+                    <div class="text-right">
+                        <div class="text-xs text-muted-color">Норма</div>
+                        <div class="text-sm text-muted-color">0.01–0.941</div>
                     </div>
                 </div>
-                <!-- Условия теста -->
-                <div class="content-start bg-white p-4 rounded-xl shadow-card grid gap-4">
-                    <h3 class="font-medium text-gray-900">Условия теста</h3>
-                    <div class="grid md:grid-cols-2 gap-4">
-                        <div class="flex items-center gap-3">
-                            <div class="flex-shrink-0 bg-gray-100 p-2 rounded-lg">
-                                <iconTime class="w-6 h-6 text-primary-500" />
-                            </div>
-                            <div>
-                                <p class="text-muted-foreground text-sm">Период от приёма пищи</p>
-                                <p class="text-gray-900 font-medium">>8 часов</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <div class="flex-shrink-0 bg-gray-100 p-2 rounded-lg">
-                                <iconFood class="w-6 h-6 text-primary-500" />
-                            </div>
-                            <div>
-                                <p class="text-muted-foreground text-sm">Период покоя</p>
-                                <p class="text-gray-900 font-medium">>1 час</p>
-                            </div>
-                        </div>
-                        <div class="flex items-center gap-3">
-                            <div class="flex-shrink-0 bg-gray-100 p-2 rounded-lg">
-                                <iconPos class="w-6 h-6 text-primary-500" />
-                            </div>
-                            <div>
-                                <p class="text-muted-foreground text-sm">Позиция при тесте</p>
-                                <p class="text-gray-900 font-medium">В покое</p>
-                            </div>
-                        </div>
-                    </div>
+                <div class="p-4 rounded-lg bg-gray-100">
+                    <p class="text-sm text-muted-color">
+                        B-CrossLaps (CTX) - маркер резорбции костной ткани. Повышенный уровень может указывать на ускоренную костную резорбцию и риск потери костной массы.
+                    </p>
                 </div>
             </div>
         </div>
