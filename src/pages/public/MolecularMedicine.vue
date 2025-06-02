@@ -329,22 +329,22 @@ const items = {
             <div class="bg-white p-4 rounded-xl shadow-card">
                 <MainInfo />
             </div>
-            <div class="grid md:grid-cols-3 gap-4">
-                <div class="col-span-2 bg-white p-4 rounded-xl shadow-card flex flex-col gap-4">
-                    <h3 class="font-medium text-gray-900">Анализируемые генетические варианты</h3>
-                    <p class="border-b border-gray-200 pb-2">
-                        <span class="text-sm text-muted-color block mb-1">
-                            Для анализа были использованы наборы генов, рекомендованные
-                            <strong class="font-medium">PanelApp и Human Phenotype Ontology, а также панели разработанные в ФГБУ ФНУЦС ФМБА России в рамка НИР МГИ-22</strong>.
-                            Анализ был произведен по панелям:</span
-                        >
-                        <span class="text-gray-900 font-medium"
-                            >«Заболевания сердечно-сосудистой системы», «заболевания опорно-двигательного аппарата и соединительной ткани», «эндокринные заболевания»</span
-                        >
-                    </p>
-                    <div>
-                        <h3 class="font-medium text-gray-900">Патогенные варианты нуклеотидной последовательности</h3>
-                        <p class="text-gray-600 text-sm mb-2">Являющиеся вероятной причиной заболевания</p>
+            <div class="bg-white p-4 rounded-xl shadow-card flex flex-col gap-4">
+                <h3 class="font-medium text-gray-900">Анализируемые генетические варианты</h3>
+                <p class="border-b border-gray-200 pb-2">
+                    <span class="text-sm text-muted-color block mb-1">
+                        Для анализа были использованы наборы генов, рекомендованные
+                        <strong class="font-medium">PanelApp и Human Phenotype Ontology, а также панели разработанные в ФГБУ ФНУЦС ФМБА России в рамка НИР МГИ-22</strong>. Анализ
+                        был произведен по панелям:</span
+                    >
+                    <span class="text-gray-900 font-medium"
+                        >«Заболевания сердечно-сосудистой системы», «заболевания опорно-двигательного аппарата и соединительной ткани», «эндокринные заболевания»</span
+                    >
+                </p>
+                <div>
+                    <h3 class="font-medium text-gray-900">Патогенные варианты нуклеотидной последовательности</h3>
+                    <p class="text-gray-600 text-sm mb-2">Являющиеся вероятной причиной заболевания</p>
+                    <div class="w-full overflow-auto">
                         <table class="table-auto w-full text-sm border border-gray-300">
                             <thead class="bg-gray-100">
                                 <tr>
@@ -365,9 +365,11 @@ const items = {
                             </tbody>
                         </table>
                     </div>
-                    <div>
-                        <h3 class="font-medium text-gray-900">Вероятно патогенные варианты</h3>
-                        <p class="text-gray-600 text-sm mb-2">Возможная причина заболевания</p>
+                </div>
+                <div>
+                    <h3 class="font-medium text-gray-900">Вероятно патогенные варианты</h3>
+                    <p class="text-gray-600 text-sm mb-2">Возможная причина заболевания</p>
+                    <div class="w-full overflow-auto">
                         <table class="table-auto w-full text-sm border border-gray-300">
                             <thead class="bg-gray-100">
                                 <tr>
@@ -388,8 +390,10 @@ const items = {
                             </tbody>
                         </table>
                     </div>
-                    <div>
-                        <h3 class="font-medium text-gray-900">Варианты неопределённого значения, имеющие возможное отношение к фенотипу</h3>
+                </div>
+                <div>
+                    <h3 class="font-medium text-gray-900">Варианты неопределённого значения, имеющие возможное отношение к фенотипу</h3>
+                    <div class="w-full overflow-auto">
                         <table class="table-auto w-full text-sm border border-gray-300 mb-2">
                             <thead class="bg-gray-100">
                                 <tr>
@@ -410,14 +414,40 @@ const items = {
                             </tbody>
                         </table>
                     </div>
-                    <p class="text-xs text-muted-color">* Частоты аллелей приведены по базе gnomAD (выборка до 141456 человек)</p>
                 </div>
-                <div class="bg-white p-4 rounded-xl shadow-card flex flex-col gap-4">
-                    <h3 class="font-medium text-gray-900">Генетический профиль</h3>
-                    <div>
-                        <RadarHenotip />
-                    </div>
+                <p class="text-xs text-muted-color">* Частоты аллелей приведены по базе gnomAD (выборка до 141456 человек)</p>
+            </div>
+            <div class="bg-white p-4 rounded-xl shadow-card flex flex-col gap-4 max-w-sm">
+                <h3 class="font-medium text-gray-900">Генетический профиль</h3>
+                <div>
+                    <RadarHenotip />
                 </div>
+            </div>
+            <!-- Технический отчет -->
+            <div class="bg-white p-4 rounded-xl shadow-card flex flex-col gap-4">
+                <h3 class="font-medium text-gray-900">Технический отчет</h3>
+                <ul class="">
+                    <li class="flex items-center gap-2 py-2">
+                        <span class="inline-block w-2 h-2 rounded-full bg-primary-500 mr-1"></span>
+                        <p class="text-muted-color">Метод исследования:</p>
+                        <p class="font-medium text-gray-900">полногеномное секвенирование (Whole Genome Sequencing)</p>
+                    </li>
+                    <li class="flex items-center gap-2 py-2">
+                        <span class="inline-block w-2 h-2 rounded-full bg-primary-500 mr-1"></span>
+                        <p class="text-muted-color">Количество нуклеотидов:</p>
+                        <p class="font-medium text-gray-900">≥90 млрд</p>
+                    </li>
+                    <li class="flex items-center gap-2 py-2">
+                        <span class="inline-block w-2 h-2 rounded-full bg-primary-500 mr-1"></span>
+                        <p class="text-muted-color">Тип прочтения:</p>
+                        <p class="font-medium text-gray-900">150 п.н., парно-концевое</p>
+                    </li>
+                    <li class="flex items-center gap-2 py-2">
+                        <span class="inline-block w-2 h-2 rounded-full bg-primary-500 mr-1"></span>
+                        <p class="text-muted-color">Качество выходных данных секвенирования:</p>
+                        <p class="font-medium text-gray-900">≥90% Q20, ≥80% Q30</p>
+                    </li>
+                </ul>
             </div>
             <!-- Таблица -->
             <div class="bg-white rounded-xl shadow-card p-4">
@@ -463,7 +493,6 @@ const items = {
                         Гены, связанные с метаболизмом пищевых веществ, влияют на усвоение питательных веществ, повышенный риск избыточный массы тела и пищевые потребности.
                     </p>
                     <GeneticTable :items="items['Питание и ожирение']" />
-
                     <div class="flex flex-col items-center text-center mt-4">
                         <h3 class="font-medium text-gray-900">Метаболизм кофеина</h3>
                         <VueSpeedometer
@@ -506,32 +535,6 @@ const items = {
                     </p>
                     <GeneticTable :items="items['Психологические особенности']" />
                 </div>
-            </div>
-            <!-- Технический отчет -->
-            <div class="bg-white p-4 rounded-xl shadow-card flex flex-col gap-4">
-                <h3 class="font-medium text-gray-900">Технический отчет</h3>
-                <ul class="">
-                    <li class="flex items-center gap-2 py-2">
-                        <span class="inline-block w-2 h-2 rounded-full bg-primary-500 mr-1"></span>
-                        <p class="text-muted-color">Метод исследования:</p>
-                        <p class="font-medium text-gray-900">полногеномное секвенирование (Whole Genome Sequencing)</p>
-                    </li>
-                    <li class="flex items-center gap-2 py-2">
-                        <span class="inline-block w-2 h-2 rounded-full bg-primary-500 mr-1"></span>
-                        <p class="text-muted-color">Количество нуклеотидов:</p>
-                        <p class="font-medium text-gray-900">≥90 млрд</p>
-                    </li>
-                    <li class="flex items-center gap-2 py-2">
-                        <span class="inline-block w-2 h-2 rounded-full bg-primary-500 mr-1"></span>
-                        <p class="text-muted-color">Тип прочтения:</p>
-                        <p class="font-medium text-gray-900">150 п.н., парно-концевое</p>
-                    </li>
-                    <li class="flex items-center gap-2 py-2">
-                        <span class="inline-block w-2 h-2 rounded-full bg-primary-500 mr-1"></span>
-                        <p class="text-muted-color">Качество выходных данных секвенирования:</p>
-                        <p class="font-medium text-gray-900">≥90% Q20, ≥80% Q30</p>
-                    </li>
-                </ul>
             </div>
         </div>
     </main>

@@ -19,8 +19,6 @@ const showLogo = ref(true);
 const target = ref(null);
 const menuGroups = ref([
     {
-        //Иконки взяты из https://primevue.org/icons/#list
-        //-> Иконки взяты из https://www.xicons.org/#/
         name: "МЕНЮ",
         menuItems: [
             {
@@ -47,12 +45,12 @@ const menuGroups = ref([
                 route: "/biomechanics",
                 visible: true,
             },
-          {
-            icon: markRaw(iconAnal),
-            label: "Аналитика",
-            route: "/analytics",
-            visible: true,
-          },
+            {
+                icon: markRaw(iconAnal),
+                label: "Аналитика",
+                route: "/analytics",
+                visible: true,
+            },
         ],
     },
 ]);
@@ -83,7 +81,7 @@ function toggleSidebar() {
         :class="{
             'translate-x-0': sidebarStore.isSidebarOpen,
             '-translate-x-full': !sidebarStore.isSidebarOpen,
-            'w-80': sidebarStore.isSidebarFull,
+            'w-1/5 min-w-65 max-w-70': sidebarStore.isSidebarFull,
             'w-20': !sidebarStore.isSidebarFull,
         }"
         ref="target"
