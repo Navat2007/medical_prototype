@@ -77,7 +77,7 @@ const chartOptions = {
     },
     title: {
       display: true,
-      text: 'Заголовок диаграммы'
+      text: 'Основные спортивные показатели'
     }
   },
   scales: {

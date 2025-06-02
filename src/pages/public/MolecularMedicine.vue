@@ -74,7 +74,7 @@ const items = {
             genotype: "AA",
             exon: "-",
             aaChange: "c.3+16973A>T",
-            comment: "Склонность к избыточной массе тела",
+            comment: "Повышенный риск избыточный массы тела",
             freq: "0,82%",
             score: 2,
         },
@@ -121,7 +121,7 @@ const items = {
             genotype: "AA",
             exon: "-",
             aaChange: "c.-275C>T",
-            comment: "Склонность к травмам",
+            comment: "Травматизма",
             freq: "0,48%",
             score: 2,
         },
@@ -380,9 +380,14 @@ const items = {
                 <div class="col-span-2 bg-white p-4 rounded-xl shadow-card flex flex-col gap-4">
                     <h3 class="font-medium text-gray-900">Анализируемые генетические варианты</h3>
                     <p class="border-b border-gray-200 pb-2">
-                        <span class="text-sm text-muted-color block mb-1">При проведении анализа были выявлены следующие патогенные варианты нуклеотидной последовательности:</span>
+                        <span class="text-sm text-muted-color block mb-1">
+                            Для анализа были использованы наборы генов, рекомендованные
+                            <strong class="font-medium">PanelApp и Human Phenotype Ontology, а также панели разработанные в ФГБУ ФНУЦС ФМБА России в рамка НИР МГИ-22</strong>.
+                            Анализ был произведен по панелям:</span
+                        >
                         <span class="text-gray-900 font-medium"
-                            >«Заболевания сердечно-сосудистой системы», «заболевания опорно-двигательного аппарата и соединительной ткани», «эндокринные заболевания»</span
+                            >«Заболевания ССС» , «заболевания сердечно-сосудистой системы», «заболевания опорно-двигательного аппарата и соединительной ткани», «эндокринные
+                            заболевания»</span
                         >
                     </p>
                     <div>
@@ -503,37 +508,37 @@ const items = {
 
                 <div v-else-if="activeTab === 'nutrition'">
                     <p class="text-sm text-gray-500 mb-4">
-                        Гены, связанные с метаболизмом пищевых веществ, влияют на усвоение питательных веществ, склонность к накоплению жира и пищевые потребности.
+                        Гены, связанные с метаболизмом пищевых веществ, влияют на усвоение питательных веществ, повышенный риск избыточный массы тела и пищевые потребности.
                     </p>
                     <GeneticTable :items="items['Питание и ожирение']" />
 
                     <div class="flex flex-col items-center text-center mt-4">
                         <h3 class="font-medium text-gray-900">Метаболизм кофеина</h3>
                         <VueSpeedometer
-                                :value="1972"
-                                :minValue="0"
-                                :maxValue="3000"
-                                :segments="3"
-                                :segmentColors="['#ff9999', '#ffe699', '#a9d18e']"
-                                :currentValueText="'Быстрый метаболизм'"
-                                :customSegmentLabels="[
-                                    {
-                                        text: 'Медленный',
-                                        position: 'INSIDE',
-                                        color: '#555',
-                                    },
-                                    {
-                                        text: 'Средний',
-                                        position: 'INSIDE',
-                                        color: '#555',
-                                    },
-                                    {
-                                        text: 'Быстрый',
-                                        position: 'INSIDE',
-                                        color: '#555',
-                                    },
-                                ]"
-                            />
+                            :value="1972"
+                            :minValue="0"
+                            :maxValue="3000"
+                            :segments="3"
+                            :segmentColors="['#ff9999', '#ffe699', '#a9d18e']"
+                            :currentValueText="'CYP1A2-генотип АА'"
+                            :customSegmentLabels="[
+                                {
+                                    text: 'Медленный',
+                                    position: 'INSIDE',
+                                    color: '#555',
+                                },
+                                {
+                                    text: 'Средний',
+                                    position: 'INSIDE',
+                                    color: '#555',
+                                },
+                                {
+                                    text: 'Быстрый',
+                                    position: 'INSIDE',
+                                    color: '#555',
+                                },
+                            ]"
+                        />
                     </div>
                 </div>
                 <div v-else-if="activeTab === 'injuries'">

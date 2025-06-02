@@ -67,13 +67,13 @@ const chartSkinfoldOptions = {
 };
 
 const chartMassData = {
-    labels: ["Масса мышц", "Масса жира"],
+    labels: ["Масса мышц, в %", "Масса жира, в %"],
     datasets: [
         {
             data: [25.3, 4.8],
-            backgroundColor: ["#3b4cca", "#f45b69"],
+            backgroundColor: ["#078ad2", "#d32f2f"],
             borderWidth: 0,
-            cutout: "70%",
+            cutout: "50%",
         },
     ],
 };
@@ -230,13 +230,13 @@ const chartEnergyData = {
         {
             label: "Липиды",
             data: [1077], // Пример данных для липидов
-            backgroundColor: "#FF6384", // Красный цвет для липидов
+            backgroundColor: "#d32f2f", // Красный цвет для липидов
             stack: "stack1",
         },
         {
             label: "Углеводы",
             data: [895], // Пример данных для углеводов
-            backgroundColor: "#36A2EB", // Синий цвет для углеводов
+            backgroundColor: "#66bb6a", // Синий цвет для углеводов
             stack: "stack1",
         },
     ],
