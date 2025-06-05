@@ -34,12 +34,7 @@ const handleItemClick = () => {
                 'px-2 justify-center': !sidebarStore.isSidebarFull,
             }"
         >
-            <Icon
-                :class="{
-                    'text-[20px]': sidebarStore.isSidebarFull,
-                    'text-[24px]': !sidebarStore.isSidebarFull,
-                }"
-            >
+            <Icon size="24">
                 <component :is="item.icon" />
             </Icon>
 
