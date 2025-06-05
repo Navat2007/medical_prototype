@@ -9,10 +9,10 @@ import Sidebar from "@components/Containers/Admin/Sidebar/Sidebar.vue";
     <Sidebar />
 
     <div class="relative flex flex-1 flex-col overflow-y-auto overflow-x-hidden">
-      <Header />
+      <!-- <Header /> -->
 
       <main>
-        <div class="mx-auto p-6">
+        <div class="mx-auto p-4">
           <slot></slot>
         </div>
       </main>

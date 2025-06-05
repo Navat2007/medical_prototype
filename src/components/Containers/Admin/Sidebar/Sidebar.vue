@@ -3,13 +3,20 @@ import { ref, markRaw, onMounted } from "vue";
 import { onClickOutside } from "@vueuse/core";
 import { useAuthStore, useSidebarStore } from "@stores";
 import { Icon } from "@vicons/utils";
-import { ArrowLeft } from "@vicons/carbon";
-import iconAnal from "@assets/icons/17.svg";
-import iconMet from "@assets/icons/04.svg";
-import iconMol from "@assets/icons/03.svg";
-import iconPsi from "@assets/icons/02.svg";
-import iconBio from "@assets/icons/01.svg";
-
+import {
+    LucideRuler,
+    LucideFlame,
+    LucideDroplet,
+    LucideActivity,
+    LucidePill,
+    LucideMove,
+    LucideBandage,
+    LucideAtom,
+    LucideBrain,
+    LucideBarChart,
+    LucideClipboardList,
+    LucideArrowLeft,
+} from "lucide-vue-next";
 import SidebarItem from "@components/Containers/Admin/Sidebar/SidebarItem.vue";
 import Logo from "@assets/images/profile.png";
 
@@ -22,33 +29,69 @@ const menuGroups = ref([
         name: "МЕНЮ",
         menuItems: [
             {
-                icon: markRaw(iconMet),
+                icon: LucideRuler,
+                label: "Антропометрия",
+                route: "/anthropometry",
+                visible: true,
+            },
+            {
+                icon: LucideFlame,
                 label: "Метаболический профиль",
                 route: "/metabolic-support",
                 visible: true,
             },
             {
-                icon: markRaw(iconMol),
-                label: "Молекулярная медицина",
-                route: "/molecular-medicine",
+                icon: LucideDroplet,
+                label: "Гематологический скрининг",
+                route: "/hematological-screening",
                 visible: true,
             },
             {
-                icon: markRaw(iconPsi),
-                label: "Психофизиология",
-                route: "/psychophysiology",
+                icon: LucideActivity,
+                label: "Контроль переносимости нагрузки",
+                route: "/load-tolerance-monitoring",
                 visible: true,
             },
             {
-                icon: markRaw(iconBio),
+                icon: LucidePill,
+                label: "Программа фармакологической поддержки",
+                route: "/pharmacological-support-program",
+                visible: true,
+            },
+            {
+                icon: LucideMove,
                 label: "Биомеханика",
                 route: "/biomechanics",
                 visible: true,
             },
             {
-                icon: markRaw(iconAnal),
+                icon: LucideBandage,
+                label: "Травматизм",
+                route: "/injury",
+                visible: true,
+            },
+            {
+                icon: LucideAtom,
+                label: "Молекулярная медицина",
+                route: "/molecular-medicine",
+                visible: true,
+            },
+            {
+                icon: LucideBrain,
+                label: "Психофизиология",
+                route: "/psychophysiology",
+                visible: true,
+            },
+            {
+                icon: LucideBarChart,
                 label: "Аналитика",
                 route: "/analytics",
+                visible: true,
+            },
+            {
+                icon: LucideClipboardList,
+                label: "Лист событий",
+                route: "/event-list",
                 visible: true,
             },
         ],
@@ -82,30 +125,43 @@ function toggleSidebar() {
             'translate-x-0': sidebarStore.isSidebarOpen,
             '-translate-x-full': !sidebarStore.isSidebarOpen,
             'w-80': sidebarStore.isSidebarFull,
-            'w-20': !sidebarStore.isSidebarFull,
+            'w-16': !sidebarStore.isSidebarFull,
         }"
         ref="target"
     >
         <div class="flex flex-col overflow-y-hidden h-full">
             <!-- Profile -->
-            <div class="flex flex-col items-center bg-white rounded-xl shadow-card p-3 m-3 delay-200 duration-300 ease-in-out" :class="{ '!p-0': !sidebarStore.isSidebarFull }">
+            <div
+                class="flex gap-3 m-2 items-center bg-white rounded-xl shadow-card delay-200 duration-300 ease-in-out"
+                :class="{
+                    'p-2': sidebarStore.isSidebarFull,
+                    'p-0': !sidebarStore.isSidebarFull,
+                }"
+            >
                 <Transition name="bounce">
-                    <img :src="Logo" class="rounded-xl w-10/12 mb-2 delay-200 duration-300 ease-in-out" :class="{ 'w-full !mb-0': !sidebarStore.isSidebarFull }" />
+                    <img
+                        :src="Logo"
+                        class="rounded-xl object-cover delay-200 duration-300 ease-in-out"
+                        :class="{
+                            'w-20 h-20': sidebarStore.isSidebarFull,
+                            'w-full h-12': !sidebarStore.isSidebarFull,
+                        }"
+                    />
                 </Transition>
                 <Transition name="fade">
                     <div v-if="showLogo">
-                        <div class="text-center text-lg font-semibold">ИВАНОВ</div>
-                        <div class="text-center text-gray-500">Алексей Сергеевич</div>
+                        <div class="text-lg font-semibold">ИВАНОВ</div>
+                        <div class="text-gray-500">Алексей Сергеевич</div>
                     </div>
                 </Transition>
             </div>
 
             <!-- Sidebar Menu -->
             <div class="flex flex-auto flex-col duration-300 ease-in-out overflow-y-auto">
-                <nav class="m-3">
+                <nav class="m-2">
                     <template v-for="menuGroup in menuGroups" :key="menuGroup.name">
                         <div>
-                            <ul class="flex flex-col gap-3">
+                            <ul class="flex flex-col gap-2">
                                 <SidebarItem v-for="(menuItem, index) in menuGroup.menuItems" :item="menuItem" :key="index" :index="index" />
                             </ul>
                         </div>
@@ -114,9 +170,8 @@ function toggleSidebar() {
             </div>
         </div>
 
-        <!-- Toggle arrow -->
         <div
-            class="ml-auto flex-none flex overflow-hidden bg-primary-500 text-white m-1 p-2 rounded-xl shadow-card hover:shadow-cardHover delay-200 duration-300 cursor-pointer"
+            class="ml-auto flex-none flex overflow-hidden bg-primary-500 text-white m-1 p-1 rounded-xl shadow-card hover:shadow-cardHover delay-200 duration-300 cursor-pointer"
             :class="{
                 'justify-end': sidebarStore.isSidebarFull,
                 'justify-center': !sidebarStore.isSidebarFull,
@@ -131,7 +186,7 @@ function toggleSidebar() {
                 }"
                 @click="toggleSidebar"
             >
-                <ArrowLeft />
+                <LucideArrowLeft class="w-6 h-6" />
             </Icon>
         </div>
     </aside>

@@ -128,9 +128,9 @@ const chartReactionOptions = {
                     <table class="w-full">
                         <thead>
                             <tr class="border-b border-border">
-                                <th class="text-left py-3 text-muted font-medium">Параметр</th>
-                                <th class="text-left py-3 text-muted font-medium">Показатель</th>
-                                <th class="text-left py-3 text-muted font-medium">Норма</th>
+                                <th class="text-left py-2 text-muted font-medium">Параметр</th>
+                                <th class="text-left py-2 text-muted font-medium">Показатель</th>
+                                <th class="text-left py-2 text-muted font-medium">Норма</th>
                             </tr>
                         </thead>
                         <tbody>
@@ -177,9 +177,9 @@ const chartReactionOptions = {
                     <table class="w-full">
                         <thead>
                             <tr class="border-b border-border">
-                                <th class="text-left py-3 text-muted font-medium">Параметр</th>
-                                <th class="text-left py-3 text-muted font-medium">Показатель</th>
-                                <th class="text-left py-3 text-muted font-medium">Норма</th>
+                                <th class="text-left py-2 text-muted font-medium">Параметр</th>
+                                <th class="text-left py-2 text-muted font-medium">Показатель</th>
+                                <th class="text-left py-2 text-muted font-medium">Норма</th>
                             </tr>
                         </thead>
                         <tbody>
