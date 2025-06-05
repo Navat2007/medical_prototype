@@ -211,6 +211,9 @@ const chartEnergyOptions = {
                 <h2 class="font-medium text-2xl text-gray-900">Нагрузочное тестирование</h2>
                 <p>Нагрузочное тестирование с газоанализатором</p>
             </div>
+            <div class="col-span-full bg-white p-4 rounded-xl shadow-card">
+                <MainInfo />
+            </div>
             <!-- Протокол нагрузки -->
             <div class="grid md:grid-cols-3 gap-4">
                 <div class="bg-white rounded-xl shadow-card p-4">

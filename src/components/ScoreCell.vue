@@ -10,5 +10,5 @@ const color = computed(() => {
 </script>
 
 <template>
-    <p :class="[color, 'inline-block rounded-lg px-2']">{{ value }}</p>
+    <p :class="[color, 'inline-block rounded-lg text-sm px-2 py-0.5']">{{ value }}</p>
 </template>

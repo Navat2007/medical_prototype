@@ -143,7 +143,7 @@ function toggleSidebar() {
                         :src="Logo"
                         class="rounded-xl object-cover delay-200 duration-300 ease-in-out"
                         :class="{
-                            'w-20 h-20': sidebarStore.isSidebarFull,
+                            'w-26 h-26': sidebarStore.isSidebarFull,
                             'w-full h-12': !sidebarStore.isSidebarFull,
                         }"
                     />
