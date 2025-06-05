@@ -98,7 +98,7 @@ const data = [
                                 </td>
                                 <td class="border text-center px-2 py-1 text-gray-900">
                                     <p class="font-medium">
-                                        <ScoreCell :value="entry.score.toFixed(1)" />
+                                        <ScoreCell :value="entry.score" />
                                     </p>
                                 </td>
                             </tr>
