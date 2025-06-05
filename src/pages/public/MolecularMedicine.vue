@@ -458,7 +458,7 @@ const items = {
                         @click="activeTab = tab.value"
                         :class="[
                             'flex items-center px-3 py-1 rounded-full text-sm transition-all',
-                            activeTab === tab.value ? 'bg-blue-600 text-white' : 'bg-gray-100 text-gray-700',
+                            activeTab === tab.value ? 'bg-primary-500 text-white' : 'bg-gray-100 text-gray-700',
                         ]"
                     >
                         <component :is="tab.icon" class="w-4 h-4 mr-2" />
