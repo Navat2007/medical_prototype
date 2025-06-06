@@ -48,21 +48,21 @@ const supplements = [
             </div>
             <h2 class="font-medium text-gray-900">Препараты</h2>
             <div class="w-full overflow-auto">
-                <table class="table-auto w-full text-sm border border-gray-300">
-                    <thead class="bg-gray-100">
+                <table class="min-w-full text-sm text-left border">
+                    <thead class="bg-gray-50">
                         <tr>
-                            <th class="border px-2 py-1 font-normal text-left">Категория</th>
-                            <th class="border px-2 py-1 font-normal text-left">Название</th>
-                            <th class="border px-2 py-1 font-normal text-left">Дозировка</th>
-                            <th class="border px-2 py-1 font-normal text-left">Продолжительность приёма</th>
+                            <th class="p-2 border text-left">Категория</th>
+                            <th class="p-2 border text-left">Название</th>
+                            <th class="p-2 border text-left">Дозировка</th>
+                            <th class="p-2 border text-left">Продолжительность приёма</th>
                         </tr>
                     </thead>
                     <tbody>
                         <tr v-for="(item, i) in supplements" :key="i" class="border-t hover:bg-gray-50">
-                            <td class="border px-2 py-1 font-medium text-gray-900">{{ item.category }}</td>
-                            <td class="border px-2 py-1 text-gray-700">{{ item.name }}</td>
-                            <td class="border px-2 py-1 text-gray-700">{{ item.dose }}</td>
-                            <td class="border px-2 py-1 text-gray-700">{{ item.duration }}</td>
+                            <td class="p-2 border font-bold">{{ item.category }}</td>
+                            <td class="p-2 border">{{ item.name }}</td>
+                            <td class="p-2 border">{{ item.dose }}</td>
+                            <td class="p-2 border">{{ item.duration }}</td>
                         </tr>
                     </tbody>
                 </table>

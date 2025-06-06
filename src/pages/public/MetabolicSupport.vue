@@ -1,38 +1,17 @@
 <script setup>
-import { onMounted, ref } from "vue";
 import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, BarElement, CategoryScale, LinearScale } from "chart.js";
-import { Pie, Bar, Doughnut } from "vue-chartjs";
+import { Bar, Doughnut } from "vue-chartjs";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import VueSpeedometer from "vue-speedometer";
-import iconBody from "@assets/images/body.svg";
 import iconTime from "@assets/icons/11.svg";
 import iconFood from "@assets/icons/12.svg";
 import iconPos from "@assets/icons/13.svg";
 import iconAten from "@assets/icons/14.svg";
 import iconMosh from "@assets/icons/15.svg";
 import iconMet from "@assets/icons/04.svg";
-import MainInfo from "@/components/Containers/Admin/MainInfo.vue";
+import MainInfo from "@/components/Containers/MainInfo.vue";
 
 ChartJS.register(Title, Tooltip, Legend, ArcElement, BarElement, CategoryScale, LinearScale, ChartDataLabels);
-
-const chartOptions = {
-    responsive: true,
-    plugins: {
-        legend: {
-            position: "bottom",
-        },
-        datalabels: {
-            color: "#172554",
-            anchor: "end",
-            align: "top",
-            font: {
-                weight: "bold",
-                size: 12,
-            },
-            formatter: (value) => value,
-        },
-    },
-};
 
 const chartNutritionData = {
     labels: ["Белки", "Жиры", "Углеводы"],
@@ -242,7 +221,7 @@ const chartEnergyOptions = {
                     </ul>
                 </div>
                 <!-- Максимальные показатели -->
-                <div class="col-span-2 bg-white rounded-xl shadow-card p-4">
+                <div class="md:col-span-2 bg-white rounded-xl shadow-card p-4">
                     <div class="grid gap-4 md:grid-cols-2 mb-4">
                         <div class="flex flex-col gap-4">
                             <h3 class="font-medium text-gray-900">Максимальные показатели</h3>
@@ -398,14 +377,14 @@ const chartEnergyOptions = {
             </div>
             <div class="grid md:grid-cols-5 gap-4">
                 <!-- Общий анализ крови -->
-                <div class="col-span-4 flex flex-col gap-4 bg-white p-4 rounded-xl shadow-card">
-                    <h3 class="row-span-full font-medium text-gray-900">Общий анализ крови</h3>
+                <div class="md:col-span-4 flex flex-col gap-4 bg-white p-4 rounded-xl shadow-card">
+                    <h3 class="md:row-span-full font-medium text-gray-900">Общий анализ крови</h3>
                     <div class="grid md:grid-cols-2 gap-4">
                         <div class="flex flex-col gap-4">
                             <div class="flex flex-col">
-                                <div class="flex justify-between items-baseline">
+                                <div class="flex flex-wrap justify-between items-baseline">
                                     <span class="text-sm text-muted-color">лейкоцитов, /литр</span>
-                                    <div class="flex items-center gap-1">
+                                    <div class="flex items-center gap-1 ml-auto">
                                         <span class="text-base font-semibold text-[#F59E0B]">3,91 10*9</span>
                                         <span class="text-xs text-muted-color"> (норма 4.01 - 9.75) </span>
                                     </div>
@@ -415,9 +394,9 @@ const chartEnergyOptions = {
                                 </div>
                             </div>
                             <div class="flex flex-col">
-                                <div class="flex justify-between items-baseline">
+                                <div class="flex flex-wrap justify-between items-baseline">
                                     <span class="text-sm text-muted-color">сегментоядерных лейкоцитов, /литр</span>
-                                    <div class="flex items-center gap-1">
+                                    <div class="flex items-center gap-1 ml-auto">
                                         <span class="text-base font-semibold text-[#F59E0B]">1,66 10*9</span>
                                         <span class="text-xs text-muted-color"> (норма 1.92 - 6.44) </span>
                                     </div>
@@ -427,9 +406,9 @@ const chartEnergyOptions = {
                                 </div>
                             </div>
                             <div class="flex flex-col">
-                                <div class="flex justify-between items-baseline">
+                                <div class="flex flex-wrap justify-between items-baseline">
                                     <span class="text-sm text-muted-color">кислая фосфатаза,  Ед/л</span>
-                                    <div class="flex items-center gap-1">
+                                    <div class="flex items-center gap-1 ml-auto">
                                         <span class="text-base font-semibold text-[#EF5350]">07.5</span>
                                         <span class="text-xs text-muted-color"> (норма 0 - 6.5) </span>
                                     </div>
@@ -439,9 +418,9 @@ const chartEnergyOptions = {
                                 </div>
                             </div>
                             <div class="flex flex-col">
-                                <div class="flex justify-between items-baseline">
+                                <div class="flex flex-wrap justify-between items-baseline">
                                     <span class="text-sm text-muted-color">Щелочная фосфатаза,  Ед/л</span>
-                                    <div class="flex items-center gap-1">
+                                    <div class="flex items-center gap-1 ml-auto">
                                         <span class="text-base font-semibold text-[#EF5350]">128</span>
                                         <span class="text-xs text-muted-color"> (норма 55-124) </span>
                                     </div>
@@ -451,9 +430,9 @@ const chartEnergyOptions = {
                                 </div>
                             </div>
                             <div class="flex flex-col">
-                                <div class="flex justify-between items-baseline">
+                                <div class="flex flex-wrap justify-between items-baseline">
                                     <span class="text-sm text-muted-color">Витамин Д</span>
-                                    <div class="flex items-center gap-1">
+                                    <div class="flex items-center gap-1 ml-auto">
                                         <span class="text-base font-semibold text-[#F59E0B]">18.9</span>
                                         <span class="text-xs text-muted-color"> (норма более 25 нг/мл) </span>
                                     </div>

@@ -1,12 +1,9 @@
 <script setup>
-import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, BarElement, CategoryScale, LinearScale } from "chart.js";
+import MainInfo from "@/components/Containers/MainInfo.vue";
 import ChartJump from "@/components/Charts/Biomechanics/ChartJump.vue";
 import ChartJumpHeight from "@/components/Charts/Biomechanics/ChartJumpHeight.vue";
-import ChartDataLabels from "chartjs-plugin-datalabels";
 import ChartSprint from "@/components/Charts/Biomechanics/ChartSprint.vue";
 import path_titles from "@assets/images/path_titles.svg";
-
-ChartJS.register(Title, Tooltip, Legend, ArcElement, BarElement, CategoryScale, LinearScale, ChartDataLabels);
 </script>
 
 <template>

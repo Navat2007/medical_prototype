@@ -1,8 +1,7 @@
 <script setup>
-import MainInfo from "../../components/Containers/Admin/MainInfo.vue";
+import MainInfo from "@/components/Containers/MainInfo.vue";
 import injuryBody from "@assets/images/injury-body.png";
-import { AlertTriangle, TrendingUp, Clock, Stethoscope } from "lucide-vue-next";
-import iconAten from "@assets/icons/14.svg";
+import { AlertTriangle, TrendingUp, Clock, Stethoscope, AlertCircle } from "lucide-vue-next";
 
 const stats = [
     { label: "Всего травм", icon: AlertTriangle, color: "text-primary-500", border: "border-primary-500", value: 4 },
@@ -70,7 +69,7 @@ const injuries = [
                 <h2 class="font-medium text-gray-900">Карта состояния спортсмена</h2>
                 <div class="flex gap-3 p-4 rounded-lg bg-green-100">
                     <div class="w-10 h-10 flex items-center justify-center rounded-md bg-green-200">
-                        <iconAten class="w-6 h-6 text-green-500" />
+                        <AlertCircle :class="['w-6 h-6 text-green-500']" />
                     </div>
                     <div>
                         <div class="text-sm text-muted-color">У спортсмена отмечается текущая боль в области:</div>
@@ -79,18 +78,18 @@ const injuries = [
                         </p>
                     </div>
                 </div>
-                <div class="flex gap-4">
+                <div class="flex flex-wrap items-center justify-center gap-4">
                     <div>
-                        <img :src="injuryBody" class="max-w-sm" />
+                        <img :src="injuryBody" class="max-w-sm w-full" />
                     </div>
                     <div class="flex flex-col justify-center gap-3 text-xs text-gray-600">
-                        <p class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-green-500 inline-block"></span>Легкая боль</p>
-                        <p class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span>Средняя боль</p>
-                        <p class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>Сильная боль</p>
+                        <p class="flex items-center gap-1"><span class="flex-none w-3 h-3 rounded-full bg-green-500 inline-block"></span>Легкая боль</p>
+                        <p class="flex items-center gap-1"><span class="flex-none w-3 h-3 rounded-full bg-yellow-500 inline-block"></span>Средняя боль</p>
+                        <p class="flex items-center gap-1"><span class="flex-none w-3 h-3 rounded-full bg-rose-500 inline-block"></span>Сильная боль</p>
                     </div>
                 </div>
             </div>
-            <div class="grid gap-4 md:grid-cols-4">
+            <div class="grid gap-4 grid-cols-2 md:grid-cols-4">
                 <div v-for="item in stats" :key="item.label" :class="['bg-white rounded-xl shadow-card p-4 border-l-4', item.border]">
                     <div class="flex gap-2 items-center mb-2">
                         <component :is="item.icon" :class="['w-6 h-6', item.color]" />

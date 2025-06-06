@@ -1,7 +1,8 @@
 <script setup>
-import ReadinessChart from "../../components/Charts/HematologicalScreening/ReadinessChart.vue";
-import ScoreCell from "../../components/ScoreCell.vue";
-import iconAten from "@assets/icons/14.svg";
+import MainInfo from "@/components/Containers/MainInfo.vue";
+import ReadinessChart from "@/components/Charts/HematologicalScreening/ReadinessChart.vue";
+import ScoreCell from "@/components/ScoreCell.vue";
+import { AlertCircle } from "lucide-vue-next";
 
 const data = [
     { date: "29.05.2025", fatigue: 7, sleepQuality: 8, sleepDuration: 7, musclePain: 6, mood: 8, stressResilience: 7, score: 7.2 },
@@ -48,7 +49,7 @@ const data = [
                         <li class="basis-50"><span class="inline-block w-10">10</span> <span class="text-green-600 bg-green-200 rounded-lg text-sm px-2 py-0.5">Отлично</span></li>
                     </ul>
                     <div class="flex gap-2 p-4 rounded-lg bg-primary-100 mt-auto">
-                        <iconAten class="w-6 h-6 flex-none text-primary-500" />
+                        <AlertCircle :class="['w-6 h-6 flex-none text-primary-500']" />
                         <div>
                             <p class="font-medium text-gray-900">Формула расчета</p>
                             <p class="text-sm">
@@ -62,42 +63,42 @@ const data = [
             <div class="bg-white p-4 rounded-xl shadow-card flex flex-col gap-4">
                 <h2 class="font-medium text-gray-900">Динамика показателей за неделю</h2>
                 <div class="w-full overflow-auto">
-                    <table class="table-auto w-full text-sm border border-gray-300">
-                        <thead class="bg-gray-100">
+                    <table class="min-w-full text-sm text-left border">
+                        <thead class="bg-gray-50">
                             <tr>
-                                <th class="border px-2 py-1 font-normal">Дата</th>
-                                <th class="border px-2 py-1 font-normal">Усталость</th>
-                                <th class="border px-2 py-1 font-normal">Качество сна</th>
-                                <th class="border px-2 py-1 font-normal">Время сна</th>
-                                <th class="border px-2 py-1 font-normal">Болезненность мышц</th>
-                                <th class="border px-2 py-1 font-normal">Настроение</th>
-                                <th class="border px-2 py-1 font-normal">Уверенность стресса</th>
-                                <th class="border px-2 py-1 font-normal">Оценка</th>
+                                <th class="p-2 border">Дата</th>
+                                <th class="p-2 border">Усталость</th>
+                                <th class="p-2 border">Качество сна</th>
+                                <th class="p-2 border">Время сна</th>
+                                <th class="p-2 border">Болезненность мышц</th>
+                                <th class="p-2 border">Настроение</th>
+                                <th class="p-2 border">Уверенность стресса</th>
+                                <th class="p-2 border">Оценка</th>
                             </tr>
                         </thead>
                         <tbody>
                             <tr v-for="entry in data" :key="entry.date">
-                                <td class="border text-center px-2 py-1 text-gray-900">{{ entry.date }}</td>
-                                <td class="border text-center px-2 py-1 text-gray-900">
+                                <td class="p-2 border text-center text-gray-900">{{ entry.date }}</td>
+                                <td class="p-2 border text-center text-gray-900">
                                     <ScoreCell :value="entry.fatigue" />
                                 </td>
-                                <td class="border text-center px-2 py-1 text-gray-900">
+                                <td class="p-2 border text-center text-gray-900">
                                     <ScoreCell :value="entry.sleepQuality" />
                                 </td>
-                                <td class="border text-center px-2 py-1 text-gray-900">
+                                <td class="p-2 border text-center text-gray-900">
                                     <ScoreCell :value="entry.sleepDuration" />
                                 </td>
-                                <td class="border text-center px-2 py-1 text-gray-900">
+                                <td class="p-2 border text-center text-gray-900">
                                     <ScoreCell :value="entry.musclePain" />
                                 </td>
-                                <td class="border text-center px-2 py-1 text-gray-900">
+                                <td class="p-2 border text-center text-gray-900">
                                     <ScoreCell :value="entry.mood" />
                                 </td>
-                                <td class="border text-center px-2 py-1 text-gray-900">
+                                <td class="p-2 border text-center text-gray-900">
                                     <ScoreCell :value="entry.stressResilience" />
                                 </td>
-                                <td class="border text-center px-2 py-1 text-gray-900">
-                                    <p class="font-medium">
+                                <td class="p-2 border text-center text-gray-900">
+                                    <p class="font-bold">
                                         <ScoreCell :value="entry.score" />
                                     </p>
                                 </td>

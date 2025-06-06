@@ -5,6 +5,7 @@ import FinalRadar from "@components/Charts/Analytics/FinalRadar.vue";
 import ChartTrainingZones from "@/components/Charts/Analytics/ChartTrainingZones.vue";
 import VueSpeedometer from "vue-speedometer";
 import ChartDistanceDistribution from "@/components/Charts/Analytics/ChartDistanceDistribution.vue";
+import MainInfo from "@/components/Containers/MainInfo.vue";
 </script>
 
 <template>
@@ -20,7 +21,7 @@ import ChartDistanceDistribution from "@/components/Charts/Analytics/ChartDistan
                 <RadarComparison />
                 <AthleteRadar />
             </div>
-            <div class="bg-white p-4 rounded-xl shadow-card flex justify-around gap-4">
+            <div class="bg-white p-4 rounded-xl shadow-card flex flex-wrap justify-around gap-4">
                 <div class="flex flex-col gap-4 items-center">
                     <h3 class="font-medium text-gray-900">Декабрь 2023</h3>
                     <VueSpeedometer
