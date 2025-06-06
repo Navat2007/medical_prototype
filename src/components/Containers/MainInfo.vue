@@ -1,15 +1,12 @@
 <script setup>
-import iconFio from "@assets/icons/10.svg";
-import iconSpo from "@assets/icons/09.svg";
-import iconMed from "@assets/icons/08.svg";
-import iconHei from "@assets/icons/06.svg";
+import { User, Scale, Medal, Ruler } from "lucide-vue-next";
 </script>
 
 <template>
     <div class="grid md:grid-cols-2 gap-4 max-w-4xl">
         <div class="flex items-center gap-3">
             <div class="flex-shrink-0 bg-primary-100 p-2 rounded-lg">
-                <iconFio class="w-6 h-6 text-primary-500" />
+                <User :class="['w-6 h-6 text-primary-500']" />
             </div>
             <div>
                 <p class="text-muted-foreground text-sm">ФИО:</p>
@@ -18,7 +15,7 @@ import iconHei from "@assets/icons/06.svg";
         </div>
         <div class="flex items-center gap-3">
             <div class="flex-shrink-0 bg-primary-100 p-2 rounded-lg">
-                <iconSpo class="w-6 h-6 text-primary-500" />
+                <Medal :class="['w-6 h-6 text-primary-500']" />
             </div>
             <div>
                 <p class="text-muted-foreground text-sm">Вид спорта:</p>
@@ -31,7 +28,7 @@ import iconHei from "@assets/icons/06.svg";
         </div>
         <div class="flex items-center gap-3">
             <div class="flex-shrink-0 bg-primary-100 p-2 rounded-lg">
-                <iconMed class="w-6 h-6 text-primary-500" />
+                <Scale :class="['w-6 h-6 text-primary-500']" />
             </div>
             <div>
                 <p class="text-muted-foreground text-sm">Дата рождения:</p>
@@ -40,7 +37,7 @@ import iconHei from "@assets/icons/06.svg";
         </div>
         <div class="flex items-center gap-3">
             <div class="flex-shrink-0 bg-primary-100 p-2 rounded-lg">
-                <iconHei class="w-6 h-6 text-primary-500" />
+                <Ruler :class="['w-6 h-6 text-primary-500']" />
             </div>
             <div>
                 <p class="text-muted-foreground text-sm">Рост:</p>
