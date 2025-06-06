@@ -24,7 +24,7 @@ const props = defineProps({
             </thead>
             <tbody>
                 <tr v-for="item in items" :key="item.gene">
-                    <td class="p-2 border">{{ item.gene }}</td>
+                    <td class="p-2 border italic">{{ item.gene }}</td>
                     <td class="p-2 border font-bold">{{ item.genotype }}</td>
                     <td class="p-2 border">{{ item.exon || "-" }}</td>
                     <td class="p-2 border">{{ item.aaChange || "-" }}</td>

@@ -1,24 +1,28 @@
 <script setup>
 import { ref } from "vue";
-import { Activity, Dumbbell, Bone, Apple, AlertCircle, Brain } from "lucide-vue-next";
+import { Activity, Dumbbell, Bone, Apple, AlertCircle, Brain, LucidePill } from "lucide-vue-next";
+import MainInfo from "@/components/Containers/MainInfo.vue";
 import GeneticTable from "@components/Tables/MolecularMedicine/GeneticTable.vue";
+import GeneticPharmTable from "@components/Tables/MolecularMedicine/GeneticPharmTable.vue";
+import OddsRatioTable from "@components/Tables/MolecularMedicine/OddsRatioTable.vue";
+import GeneticBarChart from "@components/Charts/MolecularMedicine/GeneticBarChart.vue";
 import RadarHenotip from "@components/Charts/Analytics/RadarHenotip.vue";
 import VueSpeedometer from "vue-speedometer";
-import MainInfo from "@/components/Containers/MainInfo.vue";
 
 const activeTab = ref("endurance");
 
 const tabs = [
     { value: "endurance", label: "Выносливость", icon: Activity },
     { value: "power", label: "Сила", icon: Dumbbell },
-    { value: "structure", label: "Прочность", icon: Bone },
-    { value: "nutrition", label: "Питание", icon: Apple },
+    { value: "structure", label: "Мощность и прочность", icon: Bone },
     { value: "injuries", label: "Травмы", icon: AlertCircle },
+    { value: "nutrition", label: "Питание", icon: Apple },
     { value: "psychology", label: "Психология", icon: Brain },
+    { value: "pharmacogenetics", label: "Фармакогенетика", icon: LucidePill },
 ];
 
 const items = {
-    "Сила (прочность)": [
+    "Мощность и прочность": [
         {
             gene: "ACTG1",
             genotype: "AA",
@@ -262,7 +266,7 @@ const items = {
             score: 2,
         },
     ],
-    "Сила (мощность)": [
+    Сила: [
         {
             gene: "AGT",
             genotype: "AG",
@@ -318,7 +322,41 @@ const items = {
             score: 2,
         },
     ],
+    Фармакогенетика: [
+        {
+            variant: "rs4149056",
+            genotype: "T/T",
+            comment: "Не требуется коррекция дозы статинов.",
+        },
+        {
+            variant: "rs4149056",
+            genotype: "T/T",
+            comment: "Не требуется коррекция дозы статинов.",
+        },
+        {
+            variant: "rs1057910",
+            genotype: "С/С",
+            comment:
+                "Повышенный риск эрозивно-язвенных кровотечений ЖКТ при длительных и повторяющихся приемах ибупрофена. Примечание: возможно рассмотреть снижение стандартной дозировки с отслеживанием самочувствия",
+            group: "Нестероидные противовоспалительные препараты",
+        },
+        {
+            variant: "rs1057910",
+            genotype: "CYP2C9 *3/*3",
+            comment: "Медленный метаболизатор ибупрофена.",
+            group: "Нестероидные противовоспалительные препараты",
+        },
+        {
+            variant: "rs4244285",
+            genotype: "CYP2C19 *2/*2",
+            comment:
+                "Пониженной чувствительности к клопидогрелу. Риск тромбозов после проведения хирургических вмешательств и приема клопидогрела в качестве антиагреганта. Стоит рассмотреть повышение дозировки или подобрать другой препарат.",
+            group: "Антитромбические препараты",
+        },
+    ],
 };
+
+const expanded = ref(false);
 </script>
 
 <template>
@@ -329,6 +367,43 @@ const items = {
             <div class="bg-white p-4 rounded-xl shadow-card">
                 <MainInfo />
             </div>
+            <div class="grid md:grid-cols-4 gap-4">
+                <!-- Технический отчет -->
+                <div class="col-span-3 bg-white p-4 rounded-xl shadow-card flex flex-col gap-4">
+                    <h3 class="font-medium text-gray-900">Технический отчет</h3>
+                    <ul class="grid gap-4 md:grid-cols-2">
+                        <li class="col-span-full flex flex-col gap-2 py-2 border-b border-gray-200">
+                            <p class="text-xs text-muted-color">Метод исследования</p>
+                            <p class="font-medium text-lg text-gray-900 max-w-3xl">
+                                Полногеномное секвенирование. Библиотеку полногеномных последовательностей подготовлена с использованием набора Nextera DNA Flex (Illumina, США)
+                            </p>
+                        </li>
+                        <li class="flex flex-col gap-2 py-2 border-b border-gray-200">
+                            <p class="text-xs text-muted-color">Количество нуклеотидов</p>
+                            <p class="font-medium text-lg text-gray-900">≥90 млрд</p>
+                        </li>
+                        <li class="flex flex-col gap-2 py-2 border-b border-gray-200">
+                            <p class="text-xs text-muted-color">Тип прочтения</p>
+                            <p class="font-medium text-lg text-gray-900">150 п.н., парно-концевое</p>
+                        </li>
+                        <li class="flex flex-col gap-2 py-2 border-b border-gray-200">
+                            <p class="text-xs text-muted-color">Средняя глубина покрытия</p>
+                            <p class="font-medium text-lg text-gray-900">30х</p>
+                        </li>
+                        <li class="flex flex-col gap-2 py-2 border-b border-gray-200">
+                            <p class="text-xs text-muted-color">Доля целевых участков с покрытием</p>
+                            <p class="font-medium text-lg text-gray-900">>20х:90%</p>
+                        </li>
+                    </ul>
+                </div>
+                <div class="bg-white p-4 rounded-xl shadow-card flex flex-col gap-4">
+                    <h3 class="font-medium text-gray-900">Генетический профиль</h3>
+                    <div>
+                        <RadarHenotip />
+                    </div>
+                </div>
+            </div>
+
             <div class="bg-white p-4 rounded-xl shadow-card flex flex-col gap-4">
                 <h3 class="font-medium text-gray-900">Анализируемые генетические варианты</h3>
                 <p class="border-b border-gray-200 pb-2">
@@ -338,7 +413,7 @@ const items = {
                         был произведен по панелям:</span
                     >
                     <span class="text-gray-900 font-medium"
-                        >«Заболевания сердечно-сосудистой системы», «заболевания опорно-двигательного аппарата и соединительной ткани», «эндокринные заболевания»</span
+                        >«Заболевания сердечно-сосудистой системы», «Заболевания опорно-двигательного аппарата и соединительной ткани», «Эндокринные заболевания»</span
                     >
                 </p>
                 <div>
@@ -367,9 +442,9 @@ const items = {
                     </div>
                 </div>
                 <div>
-                    <h3 class="font-medium text-gray-900">Вероятно патогенные варианты</h3>
+                    <h3 class="font-medium text-gray-900">Вероятно-патогенные варианты</h3>
                     <p class="text-gray-600 text-sm mb-2">Возможная причина заболевания</p>
-                    <div class="w-full overflow-auto">
+                    <div class="w-full overflow-auto mb-2">
                         <table class="min-w-full text-sm text-left border">
                             <thead class="bg-gray-50">
                                 <tr>
@@ -385,10 +460,52 @@ const items = {
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td colspan="8" class="text-center p-2 border">Не обнаружено</td>
+                                    <td class="p-2 border text-left">
+                                        <div class="flex items-center gap-2 text-red-500 font-medium"><AlertCircle :class="['flex-none w-4 h-4 text-secondary-500']" /> KCNQ1</div>
+                                    </td>
+                                    <td class="p-2 border text-left">chr11:2583526</td>
+                                    <td class="p-2 border text-left">CTT/C</td>
+                                    <td class="p-2 border text-left">7</td>
+                                    <td class="p-2 border text-left">NM_000218.3: c.1017_1019del</td>
+                                    <td class="p-2 border text-left">p.Phe340del</td>
+                                    <td class="p-2 border text-left">0,0000006197</td>
+                                    <td class="p-2 border text-left">Патогенный (V)</td>
                                 </tr>
                             </tbody>
                         </table>
+                    </div>
+                    <div class="flex gap-4 p-4 rounded-lg bg-secondary-100 border border-secondary-300">
+                        <div class="flex-none w-10 h-10 flex items-center justify-center rounded-md bg-secondary-200">
+                            <AlertCircle :class="['w-6 h-6 text-secondary-500']" />
+                        </div>
+                        <div>
+                            <div class="text-base font-medium text-gray-900">
+                                Обнаружен вероятно-патогенный вариант NM_000218.3: c.1017_1019del (p.Phe340del) в&nbsp;последовательности 7 экзона гена
+                                <span class="font-bold">KCNQ1</span>.
+                            </div>
+                            <transition name="fade">
+                                <div v-if="expanded" class="text-sm text-gray-600 flex flex-col gap-2">
+                                    <p>Этот ген кодирует потенциал-зависимые калиевые каналы, которые переносят ионы K⁺ через клеточную мембрану.</p>
+                                    <p>
+                                        Благодаря этому обеспечивается генерация и передача электрических сигналов, необходимых для нормального функционирования сердца, внутреннего
+                                        уха, почек, лёгких, желудка и толстого кишечника.
+                                    </p>
+                                    <p>
+                                        Изменения в гене KCNQ1, включая мутации и хромосомные перестройки, ассоциированы с развитием различных сердечно-сосудистых заболеваний,
+                                        таких как синдром слабости синусового узла (OMIM 608567), аритмогенная дисплазия правого желудочка (OMIM #607450), наследственный синдром
+                                        удлинённого интервала QT типа 1 (OMIM 192500), синдром короткого интервала QT типа 2 (SQT2) (OMIM 609621) и семейная фибрилляция предсердий
+                                        типа 3 (ATFB3) (OMIM 609427).
+                                    </p>
+                                    <p>
+                                        <strong class="text-secondary-500">NB!!</strong> Спортсмену рекомендуются расширенное кардиологические обследование – МРТ сердца,
+                                        холтеровское мониторирование, консультация аритмолога.
+                                    </p>
+                                </div>
+                            </transition>
+                            <button class="font-medium text-secondary-500 hover:underline" @click="expanded = !expanded">
+                                {{ expanded ? "Скрыть" : "Подробнее" }}
+                            </button>
+                        </div>
                     </div>
                 </div>
                 <div>
@@ -415,40 +532,12 @@ const items = {
                         </table>
                     </div>
                 </div>
-                <p class="text-xs text-muted-color">* Частоты аллелей приведены по базе gnomAD (выборка до 141456 человек)</p>
-            </div>
-            <div class="bg-white p-4 rounded-xl shadow-card flex flex-col gap-4 max-w-sm">
-                <h3 class="font-medium text-gray-900">Генетический профиль</h3>
                 <div>
-                    <RadarHenotip />
+                    <p class="text-xs text-muted-color">* Частоты аллелей приведены по базе gnomAD (выборка до 141456 человек)</p>
+                    <p class="text-xs text-muted-color">**Класс патогенности от I (доброкачественный) до V (патогенный) присвоен по рекомендациям ACMG (2015) и РОМГ (2018).</p>
                 </div>
             </div>
-            <!-- Технический отчет -->
-            <div class="bg-white p-4 rounded-xl shadow-card flex flex-col gap-4">
-                <h3 class="font-medium text-gray-900">Технический отчет</h3>
-                <ul class="">
-                    <li class="flex items-center gap-2 py-2">
-                        <span class="inline-block w-2 h-2 rounded-full bg-primary-500 mr-1"></span>
-                        <p class="text-muted-color">Метод исследования:</p>
-                        <p class="font-medium text-gray-900">полногеномное секвенирование (Whole Genome Sequencing)</p>
-                    </li>
-                    <li class="flex items-center gap-2 py-2">
-                        <span class="inline-block w-2 h-2 rounded-full bg-primary-500 mr-1"></span>
-                        <p class="text-muted-color">Количество нуклеотидов:</p>
-                        <p class="font-medium text-gray-900">≥90 млрд</p>
-                    </li>
-                    <li class="flex items-center gap-2 py-2">
-                        <span class="inline-block w-2 h-2 rounded-full bg-primary-500 mr-1"></span>
-                        <p class="text-muted-color">Тип прочтения:</p>
-                        <p class="font-medium text-gray-900">150 п.н., парно-концевое</p>
-                    </li>
-                    <li class="flex items-center gap-2 py-2">
-                        <span class="inline-block w-2 h-2 rounded-full bg-primary-500 mr-1"></span>
-                        <p class="text-muted-color">Качество выходных данных секвенирования:</p>
-                        <p class="font-medium text-gray-900">≥90% Q20, ≥80% Q30</p>
-                    </li>
-                </ul>
-            </div>
+
             <!-- Таблица -->
             <div class="bg-white rounded-xl shadow-card p-4">
                 <div class="mb-6 flex flex-wrap gap-2">
@@ -468,29 +557,47 @@ const items = {
 
                 <div v-if="activeTab === 'endurance'">
                     <p class="text-sm text-gray-500 mb-4">
-                        Гены, связанные с выносливостью, определяют эффективность аэробного метаболизма, плотность капилляров и митохондрий, а также способность к транспорту
-                        кислорода.
+                        Гены, связанные с развитием выносливости, кодируют белки, участвующие в регуляции энергетического обмена, митохондриальной функции, окислительного
+                        фосфорилирования, а также в адаптации сердечно-сосудистой и дыхательной систем к длительной физической нагрузке.
                     </p>
                     <GeneticTable :items="items['Выносливость']" />
                 </div>
 
                 <div v-else-if="activeTab === 'power'">
                     <p class="text-sm text-gray-500 mb-4">
-                        Гены, связанные с силовыми качествами, влияют на тип мышечных волокон, скорость сокращения мышц и способность развивать взрывную силу.
+                        Гены, связанные с развитием силы, участвуют в регуляции мышечной гипертрофии, сократительной функции мышечных волокон, метаболизма гликогена и анаболических
+                        сигнальных путей.
                     </p>
-                    <GeneticTable :items="items['Сила (мощность)']" />
+                    <GeneticTable :items="items['Сила']" />
                 </div>
 
                 <div v-else-if="activeTab === 'structure'">
                     <p class="text-sm text-gray-500 mb-4">
-                        Гены, связанные со структурной прочностью, определяют качество соединительной ткани, гибкость и устойчивость к механическим нагрузкам.
+                        Гены, ассоциированные с мощностью, определяют предрасположенность к реализации кратковременной высокой мышечной производительности за счёт регуляции
+                        экспрессии белков, участвующих в сократительной активности и энергетическом обмене в быстро сокращающихся мышечных волокнах. Гены, связанные с прочностью,
+                        участвуют в молекулярной регуляции структуры и функции соединительных тканей, обеспечивая механическую устойчивость к физическим нагрузкам и эффективные
+                        процессы репарации после повреждений.
                     </p>
-                    <GeneticTable :items="items['Сила (прочность)']" />
+                    <GeneticTable :items="items['Мощность и прочность']" />
+                </div>
+
+                <div v-else-if="activeTab === 'injuries'">
+                    <div class="flex flex-col gap-4">
+                        <p class="text-sm text-gray-500">
+                            Гены, связанные с травматизмом, участвуют в механизмах, определяющих устойчивость тканей к механическим нагрузкам, процессы воспаления, восстановления и
+                            регенерации, а также сенсомоторный контроль.
+                        </p>
+                        <GeneticTable :items="items['Спортивные травмы']" />
+                        <GeneticBarChart />
+                        <OddsRatioTable />
+                    </div>
                 </div>
 
                 <div v-else-if="activeTab === 'nutrition'">
                     <p class="text-sm text-gray-500 mb-4">
-                        Гены, связанные с метаболизмом пищевых веществ, влияют на усвоение питательных веществ, повышенный риск избыточный массы тела и пищевые потребности.
+                        Гены, связанные с питанием, регулируют широкий спектр процессов, включая аппетит, насыщение, вкусовое восприятие, энергетический обмен, усвоение макро- и
+                        микронутриентов, а также ответ на диету. Генетические варианты в этих генах влияют на пищевое поведение, метаболическую эффективность и предрасположенность
+                        к ожирению, дефициту витаминов, непереносимости продуктов и другим диет-зависимым состояниям.
                     </p>
                     <GeneticTable :items="items['Питание и ожирение']" />
                     <div class="flex flex-col items-center text-center mt-4">
@@ -522,22 +629,35 @@ const items = {
                         />
                     </div>
                 </div>
-                <div v-else-if="activeTab === 'injuries'">
-                    <p class="text-sm text-gray-500 mb-4">
-                        Гены, связанные с риском травм, влияют на прочность связок, сухожилий и костей, а также на скорость восстановления после повреждений.
-                    </p>
-                    <GeneticTable :items="items['Спортивные травмы']" />
-                </div>
 
                 <div v-else-if="activeTab === 'psychology'">
                     <p class="text-sm text-gray-500 mb-4">
-                        Гены, связанные с психологическими характеристиками, влияют на стрессоустойчивость, когнитивные функции и психологическую адаптацию к нагрузкам.
+                        Гены, связанные с психологической приверженностью к занятиям спортом, включая мотивацию, удовольствие от физической активности и склонность к регулярным
+                        тренировкам. Эти гены участвуют в нейрохимических путях вознаграждения, мотивации и регуляции стресса.
                     </p>
                     <GeneticTable :items="items['Психологические особенности']" />
+                </div>
+
+                <div v-else-if="activeTab === 'pharmacogenetics'">
+                    <p class="text-sm text-gray-500 mb-4">
+                        Фармакогенетика изучает, как индивидуальные генетические вариации влияют на реакцию организма на лекарственные препараты. Особое внимание уделяется генам,
+                        кодирующим ферменты метаболизма лекарств, транспортёры и рецепторы. Понимание этих генов позволяет персонализировать терапию, повышая её эффективность и
+                        снижая риск побочных эффектов. Анализируемые варианты были составлены при помощи <span class="font-semibold">PharmGKB</span>.
+                    </p>
+                    <GeneticPharmTable :items="items['Фармакогенетика']" />
                 </div>
             </div>
         </div>
     </main>
 </template>
 
-<style scoped></style>
+<style scoped>
+.fade-enter-active,
+.fade-leave-active {
+    transition: opacity 0.3s ease;
+}
+.fade-enter-from,
+.fade-leave-to {
+    opacity: 0;
+}
+</style>
