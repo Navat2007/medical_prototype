@@ -8,6 +8,7 @@ import OddsRatioTable from "@components/Tables/MolecularMedicine/OddsRatioTable.
 import GeneticBarChart from "@components/Charts/MolecularMedicine/GeneticBarChart.vue";
 import RadarHenotip from "@components/Charts/Analytics/RadarHenotip.vue";
 import VueSpeedometer from "vue-speedometer";
+import CoffeeImage from "@assets/images/metabolism-coffee.png";
 
 const activeTab = ref("endurance");
 
@@ -367,6 +368,13 @@ const expanded = ref(false);
             <div class="bg-white p-4 rounded-xl shadow-card">
                 <MainInfo />
             </div>
+
+            <!-- Дозировка кофеина -->
+            <div class="flex flex-col gap-4 bg-white p-4 rounded-xl shadow-card">
+                <h3 class="font-medium text-gray-900">Дозировка кофеина в сутки</h3>
+                <img :src="CoffeeImage" class="max-w-xs w-full" />
+            </div>
+
             <div class="grid md:grid-cols-4 gap-4">
                 <!-- Технический отчет -->
                 <div class="md:col-span-3 bg-white p-4 rounded-xl shadow-card flex flex-col gap-4">

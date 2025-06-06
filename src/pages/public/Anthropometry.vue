@@ -1,6 +1,6 @@
 <script setup>
 import MainInfo from "@/components/Containers/MainInfo.vue";
-import iconBody from "@assets/images/body.svg";
+import IconBody from "@assets/images/body.svg";
 import ChartSkinfold from "@/components/Charts/Anthropometry/ChartSkinfold.vue";
 import ChartMass from "@/components/Charts/Anthropometry/ChartMass.vue";
 </script>
@@ -76,7 +76,7 @@ import ChartMass from "@/components/Charts/Anthropometry/ChartMass.vue";
                                 <p class="font-medium">36 см</p>
                             </li>
                         </ul>
-                        <iconBody width="100" class="flex-none" />
+                        <IconBody width="100" class="flex-none" />
                     </div>
                 </div>
             </div>
