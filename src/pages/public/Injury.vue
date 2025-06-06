@@ -78,18 +78,18 @@ const injuries = [
                         </p>
                     </div>
                 </div>
-                <div class="flex gap-4">
+                <div class="flex flex-wrap items-center justify-center gap-4">
                     <div>
-                        <img :src="injuryBody" class="max-w-sm" />
+                        <img :src="injuryBody" class="max-w-sm w-full" />
                     </div>
                     <div class="flex flex-col justify-center gap-3 text-xs text-gray-600">
-                        <p class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-green-500 inline-block"></span>Легкая боль</p>
-                        <p class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-yellow-500 inline-block"></span>Средняя боль</p>
-                        <p class="flex items-center gap-1"><span class="w-3 h-3 rounded-full bg-rose-500 inline-block"></span>Сильная боль</p>
+                        <p class="flex items-center gap-1"><span class="flex-none w-3 h-3 rounded-full bg-green-500 inline-block"></span>Легкая боль</p>
+                        <p class="flex items-center gap-1"><span class="flex-none w-3 h-3 rounded-full bg-yellow-500 inline-block"></span>Средняя боль</p>
+                        <p class="flex items-center gap-1"><span class="flex-none w-3 h-3 rounded-full bg-rose-500 inline-block"></span>Сильная боль</p>
                     </div>
                 </div>
             </div>
-            <div class="grid gap-4 md:grid-cols-4">
+            <div class="grid gap-4 grid-cols-2 md:grid-cols-4">
                 <div v-for="item in stats" :key="item.label" :class="['bg-white rounded-xl shadow-card p-4 border-l-4', item.border]">
                     <div class="flex gap-2 items-center mb-2">
                         <component :is="item.icon" :class="['w-6 h-6', item.color]" />

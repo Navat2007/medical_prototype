@@ -11,10 +11,10 @@ import ChartMass from "@/components/Charts/Anthropometry/ChartMass.vue";
         <!-- Антропометрия -->
         <div class="bg-white p-4 rounded-xl shadow-card flex flex-col gap-4">
             <div class="grid md:grid-cols-5 gap-4">
-                <div class="col-span-4 bg-white p-4 rounded-xl shadow-card">
+                <div class="md:col-span-4 bg-white p-4 rounded-xl shadow-card">
                     <MainInfo />
                 </div>
-                <div class="col-span-4 grid gap-4 grid-cols-2 md:grid-cols-4">
+                <div class="md:col-span-4 grid gap-4 md:grid-cols-4">
                     <div class="bg-white rounded-xl shadow-card p-4 border-l-4 border-primary-500">
                         <p class="text-sm text-muted mb-2">Индекс массы тела, ИМТ</p>
                         <div class="flex items-end gap-1">
@@ -45,7 +45,7 @@ import ChartMass from "@/components/Charts/Anthropometry/ChartMass.vue";
                     </div>
                 </div>
                 <!-- График процента -->
-                <div class="row-start-1 row-span-2 col-start-5 col-span-2 bg-white rounded-xl shadow-card p-4 flex flex-col items-center">
+                <div class="md:row-start-1 md:row-span-2 md:col-start-5 md:col-span-2 bg-white rounded-xl shadow-card p-4 flex flex-col items-center">
                     <ChartMass />
                 </div>
             </div>

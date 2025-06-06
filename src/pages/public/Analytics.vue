@@ -21,7 +21,7 @@ import MainInfo from "@/components/Containers/MainInfo.vue";
                 <RadarComparison />
                 <AthleteRadar />
             </div>
-            <div class="bg-white p-4 rounded-xl shadow-card flex justify-around gap-4">
+            <div class="bg-white p-4 rounded-xl shadow-card flex flex-wrap justify-around gap-4">
                 <div class="flex flex-col gap-4 items-center">
                     <h3 class="font-medium text-gray-900">Декабрь 2023</h3>
                     <VueSpeedometer
