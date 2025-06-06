@@ -120,19 +120,18 @@ function toggleSidebar() {
 
 <template>
     <aside
-        class="absolute shadow-card left-0 top-0 z-999 flex h-screen flex-col delay-200 duration-300 ease-in-out lg:static lg:translate-x-0 bg-white bg-image-sidebar"
-        :class="{
-            'translate-x-0': sidebarStore.isSidebarOpen,
-            '-translate-x-full': !sidebarStore.isSidebarOpen,
-            'w-80': sidebarStore.isSidebarFull,
-            'w-16': !sidebarStore.isSidebarFull,
-        }"
+        class="absolute left-0 top-0 z-999 bg-white shadow-card flex h-screen flex-col transition-all duration-300 ease-in-out lg:static lg:translate-x-0 bg-image-sidebar"
+        :class="[
+            sidebarStore.isSidebarOpen ? 'translate-x-0' : '-translate-x-full',
+            'lg:translate-x-0', // всегда видно на lg+
+            sidebarStore.isSidebarFull ? 'w-80' : 'w-16',
+        ]"
         ref="target"
     >
         <div class="flex flex-col overflow-y-hidden h-full">
             <!-- Profile -->
             <div
-                class="flex gap-3 m-2 items-center bg-white rounded-xl shadow-card delay-200 duration-300 ease-in-out"
+                class="flex gap-3 m-2 items-center bg-white rounded-xl shadow-card transition-all duration-300 ease-in-out"
                 :class="{
                     'p-2': sidebarStore.isSidebarFull,
                     'p-0': !sidebarStore.isSidebarFull,
@@ -141,7 +140,7 @@ function toggleSidebar() {
                 <Transition name="bounce">
                     <img
                         :src="Logo"
-                        class="rounded-xl object-cover delay-200 duration-300 ease-in-out"
+                        class="rounded-xl object-cover transition-all duration-300 ease-in-out"
                         :class="{
                             'w-26 h-26': sidebarStore.isSidebarFull,
                             'w-full h-12': !sidebarStore.isSidebarFull,
@@ -149,7 +148,7 @@ function toggleSidebar() {
                     />
                 </Transition>
                 <Transition name="fade">
-                    <div v-if="showLogo">
+                    <div v-if="showLogo" class="transition-all duration-300">
                         <div class="text-lg font-semibold">ИВАНОВ</div>
                         <div class="text-gray-500">Алексей Сергеевич</div>
                     </div>
