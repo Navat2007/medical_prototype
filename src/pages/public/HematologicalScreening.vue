@@ -1,8 +1,9 @@
 <script setup>
 import { ref } from "vue";
+import ChartBlood from "@/components/Charts/HematologicalScreening/ChartBlood.vue";
 import Indicator from "@/components/Containers/Indicator.vue";
 import MainInfo from "@/components/Containers/MainInfo.vue";
-import { Droplet, LineChart } from "lucide-vue-next";
+import { Droplet, LineChart, AlertCircle } from "lucide-vue-next";
 
 const activeTab = ref("summary");
 const tabs = [
@@ -124,6 +125,103 @@ function deviationColor(value, norm) {
         <div class="bg-white p-4 rounded-xl shadow-card flex flex-col gap-4">
             <div class="bg-white p-4 rounded-xl shadow-card">
                 <MainInfo />
+            </div>
+            <!-- Общий анализ крови -->
+            <div class="md:col-span-4 flex flex-col gap-4 bg-white p-4 rounded-xl shadow-card">
+                <div class="grid md:grid-cols-2 gap-4">
+                    <div class="flex flex-col gap-4">
+                        <div class="flex flex-col">
+                            <div class="flex flex-wrap justify-between items-baseline">
+                                <span class="text-sm text-muted-color">лейкоцитов, /литр</span>
+                                <div class="flex items-center gap-1 ml-auto">
+                                    <span class="text-base font-semibold text-[#F59E0B]">3,91 10*9</span>
+                                    <span class="text-xs text-muted-color"> (норма 4.01 - 9.75) </span>
+                                </div>
+                            </div>
+                            <div class="mt-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                                <div class="h-full bg-[#F59E0B]" style="width: 60%"></div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col">
+                            <div class="flex flex-wrap justify-between items-baseline">
+                                <span class="text-sm text-muted-color">сегментоядерных лейкоцитов, /литр</span>
+                                <div class="flex items-center gap-1 ml-auto">
+                                    <span class="text-base font-semibold text-[#F59E0B]">1,66 10*9</span>
+                                    <span class="text-xs text-muted-color"> (норма 1.92 - 6.44) </span>
+                                </div>
+                            </div>
+                            <div class="mt-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                                <div class="h-full bg-[#F59E0B]" style="width: 60%"></div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col">
+                            <div class="flex flex-wrap justify-between items-baseline">
+                                <span class="text-sm text-muted-color">кислая фосфатаза,  Ед/л</span>
+                                <div class="flex items-center gap-1 ml-auto">
+                                    <span class="text-base font-semibold text-[#EF5350]">07.5</span>
+                                    <span class="text-xs text-muted-color"> (норма 0 - 6.5) </span>
+                                </div>
+                            </div>
+                            <div class="mt-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                                <div class="h-full bg-[#EF5350]" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col">
+                            <div class="flex flex-wrap justify-between items-baseline">
+                                <span class="text-sm text-muted-color">Щелочная фосфатаза,  Ед/л</span>
+                                <div class="flex items-center gap-1 ml-auto">
+                                    <span class="text-base font-semibold text-[#EF5350]">128</span>
+                                    <span class="text-xs text-muted-color"> (норма 55-124) </span>
+                                </div>
+                            </div>
+                            <div class="mt-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                                <div class="h-full bg-[#EF5350]" style="width: 90%"></div>
+                            </div>
+                        </div>
+                        <div class="flex flex-col">
+                            <div class="flex flex-wrap justify-between items-baseline">
+                                <span class="text-sm text-muted-color">Витамин Д</span>
+                                <div class="flex items-center gap-1 ml-auto">
+                                    <span class="text-base font-semibold text-[#F59E0B]">18.9</span>
+                                    <span class="text-xs text-muted-color"> (норма более 25 нг/мл) </span>
+                                </div>
+                            </div>
+                            <div class="mt-1 h-2 bg-gray-100 rounded-full overflow-hidden">
+                                <div class="h-full bg-[#F59E0B]" style="width: 60%"></div>
+                            </div>
+                        </div>
+                    </div>
+                    <div>
+                        <ChartBlood />
+                    </div>
+                </div>
+            </div>
+            <!-- Гормональный профиль -->
+            <div class="flex flex-col gap-4 bg-white p-4 rounded-xl shadow-card">
+                <h3 class="font-medium text-gray-900">Гормональный профиль</h3>
+                <div class="flex items-center justify-between p-4 rounded-lg bg-secondary-100 border border-secondary-300">
+                    <div class="flex items-center gap-3">
+                        <div class="w-10 h-10 flex items-center justify-center rounded-md bg-secondary-200">
+                            <AlertCircle :class="['w-6 h-6 text-secondary-500']" />
+                        </div>
+                        <div>
+                            <div class="text-sm text-muted-color">B-CrossLaps</div>
+                            <div class="flex items-baseline">
+                                <span class="text-xl font-semibold text-secondary-500">1.23</span>
+                                <span class="ml-1 text-sm text-muted-color">ng/ml</span>
+                            </div>
+                        </div>
+                    </div>
+                    <div class="text-right">
+                        <div class="text-xs text-muted-color">Норма</div>
+                        <div class="text-sm text-muted-color">0.01–0.941</div>
+                    </div>
+                </div>
+                <div class="p-4 rounded-lg bg-gray-100">
+                    <p class="text-sm text-muted-color">
+                        B-CrossLaps (CTX) - маркер резорбции костной ткани. Повышенный уровень может указывать на ускоренную костную резорбцию и риск потери костной массы.
+                    </p>
+                </div>
             </div>
             <div class="bg-white rounded-xl shadow-card p-4">
                 <div class="mb-6 flex flex-wrap gap-2">

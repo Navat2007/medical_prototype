@@ -54,7 +54,7 @@ const menuGroups = ref([
             },
             {
                 icon: LucidePill,
-                label: "Программа фармакологической поддержки",
+                label: "Программа фарм. поддержки",
                 route: "/pharmacological-support-program",
                 visible: true,
             },
