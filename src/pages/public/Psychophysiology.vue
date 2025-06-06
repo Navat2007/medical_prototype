@@ -1,6 +1,6 @@
 <script setup>
 import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, BarElement, CategoryScale, LinearScale } from "chart.js";
-import { Pie, Bar, Doughnut } from "vue-chartjs";
+import { Bar } from "vue-chartjs";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import ReactionGauge from "@components/Charts/ReactionGauge.vue";
 import CorrectReactionsBar from "@components/Charts/CorrectReactionsBar.vue";
@@ -34,83 +34,6 @@ const simpleData = {
             backgroundColor: "#078AD2",
         },
     ],
-};
-
-const chartReactionData = {
-    labels: [""], // Пустая строка — один ряд
-    datasets: [
-        {
-            label: "Максимум",
-            data: [20],
-            backgroundColor: (ctx) => {
-                const chart = ctx.chart;
-                const { ctx: canvasCtx } = chart;
-                const canvas = document.createElement("canvas");
-                const pctx = canvas.getContext("2d");
-                canvas.width = 10;
-                canvas.height = 10;
-                pctx.strokeStyle = "#3B82F6";
-                pctx.lineWidth = 1;
-                pctx.beginPath();
-                pctx.moveTo(0, 10);
-                pctx.lineTo(10, 0);
-                pctx.stroke();
-                return canvasCtx.createPattern(canvas, "repeat");
-            },
-            borderWidth: 0,
-            barThickness: 30,
-            datalabels: { display: false },
-        },
-        {
-            label: "Правильные реакции",
-            data: [19],
-            backgroundColor: "#3B82F6",
-            borderRadius: 4,
-            barThickness: 30,
-        },
-    ],
-};
-const chartReactionOptions = {
-    indexAxis: "y",
-    responsive: true,
-    plugins: {
-        title: {
-            display: true,
-            text: "Число правильных реакций, шт.",
-            align: "start",
-            padding: {
-                top: 10,
-                bottom: 10,
-            },
-            font: {
-                size: 14,
-                weight: "normal",
-            },
-        },
-        legend: { display: false },
-        tooltip: { enabled: false },
-        datalabels: {
-            display: (ctx) => ctx.dataset.label === "Правильные реакции",
-            color: "#fff",
-            anchor: "end",
-            align: "right",
-            font: {
-                weight: "bold",
-            },
-            formatter: (value) => value,
-        },
-    },
-    scales: {
-        x: {
-            max: 20,
-            grid: { display: false },
-            ticks: { stepSize: 5 },
-        },
-        y: {
-            grid: { display: false },
-            ticks: { display: false },
-        },
-    },
 };
 </script>
 
@@ -167,7 +90,6 @@ const chartReactionOptions = {
                         </tbody>
                     </table>
                 </div>
-
                 <Bar :data="simpleData" :options="chartOptions" />
                 <ReactionGauge :steps="[400, 350, 300, 250, 200, 150, 100, 50, 0]" :value="214" />
             </div>
@@ -216,7 +138,6 @@ const chartReactionOptions = {
                         </tbody>
                     </table>
                 </div>
-
                 <CorrectReactionsBar />
                 <ReactionGauge :steps="[900, 800, 700, 600, 500, 400, 300, 200, 100, 0]" :value="324" />
             </div>

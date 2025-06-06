@@ -1,38 +1,17 @@
 <script setup>
-import { onMounted, ref } from "vue";
 import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, BarElement, CategoryScale, LinearScale } from "chart.js";
-import { Pie, Bar, Doughnut } from "vue-chartjs";
+import { Bar, Doughnut } from "vue-chartjs";
 import ChartDataLabels from "chartjs-plugin-datalabels";
 import VueSpeedometer from "vue-speedometer";
-import iconBody from "@assets/images/body.svg";
 import iconTime from "@assets/icons/11.svg";
 import iconFood from "@assets/icons/12.svg";
 import iconPos from "@assets/icons/13.svg";
 import iconAten from "@assets/icons/14.svg";
 import iconMosh from "@assets/icons/15.svg";
 import iconMet from "@assets/icons/04.svg";
-import MainInfo from "@/components/Containers/Admin/MainInfo.vue";
+import MainInfo from "@/components/Containers/MainInfo.vue";
 
 ChartJS.register(Title, Tooltip, Legend, ArcElement, BarElement, CategoryScale, LinearScale, ChartDataLabels);
-
-const chartOptions = {
-    responsive: true,
-    plugins: {
-        legend: {
-            position: "bottom",
-        },
-        datalabels: {
-            color: "#172554",
-            anchor: "end",
-            align: "top",
-            font: {
-                weight: "bold",
-                size: 12,
-            },
-            formatter: (value) => value,
-        },
-    },
-};
 
 const chartNutritionData = {
     labels: ["Белки", "Жиры", "Углеводы"],

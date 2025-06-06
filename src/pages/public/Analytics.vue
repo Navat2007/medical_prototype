@@ -5,6 +5,7 @@ import FinalRadar from "@components/Charts/Analytics/FinalRadar.vue";
 import ChartTrainingZones from "@/components/Charts/Analytics/ChartTrainingZones.vue";
 import VueSpeedometer from "vue-speedometer";
 import ChartDistanceDistribution from "@/components/Charts/Analytics/ChartDistanceDistribution.vue";
+import MainInfo from "@/components/Containers/MainInfo.vue";
 </script>
 
 <template>

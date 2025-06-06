@@ -4,7 +4,7 @@ import { Activity, Dumbbell, Bone, Apple, AlertCircle, Brain } from "lucide-vue-
 import GeneticTable from "@components/Tables/MolecularMedicine/GeneticTable.vue";
 import RadarHenotip from "@components/Charts/Analytics/RadarHenotip.vue";
 import VueSpeedometer from "vue-speedometer";
-import MainInfo from "@/components/Containers/Admin/MainInfo.vue";
+import MainInfo from "@/components/Containers/MainInfo.vue";
 
 const activeTab = ref("endurance");
 

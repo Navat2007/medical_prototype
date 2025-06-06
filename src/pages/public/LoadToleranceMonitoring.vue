@@ -1,7 +1,8 @@
 <script setup>
-import ReadinessChart from "../../components/Charts/HematologicalScreening/ReadinessChart.vue";
-import ScoreCell from "../../components/ScoreCell.vue";
-import iconAten from "@assets/icons/14.svg";
+import MainInfo from "@/components/Containers/MainInfo.vue";
+import ReadinessChart from "@/components/Charts/HematologicalScreening/ReadinessChart.vue";
+import ScoreCell from "@/components/ScoreCell.vue";
+import { AlertCircle } from "lucide-vue-next";
 
 const data = [
     { date: "29.05.2025", fatigue: 7, sleepQuality: 8, sleepDuration: 7, musclePain: 6, mood: 8, stressResilience: 7, score: 7.2 },
@@ -48,7 +49,7 @@ const data = [
                         <li class="basis-50"><span class="inline-block w-10">10</span> <span class="text-green-600 bg-green-200 rounded-lg text-sm px-2 py-0.5">Отлично</span></li>
                     </ul>
                     <div class="flex gap-2 p-4 rounded-lg bg-primary-100 mt-auto">
-                        <iconAten class="w-6 h-6 flex-none text-primary-500" />
+                        <AlertCircle :class="['w-6 h-6 flex-none text-primary-500']" />
                         <div>
                             <p class="font-medium text-gray-900">Формула расчета</p>
                             <p class="text-sm">

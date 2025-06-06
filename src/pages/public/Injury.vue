@@ -1,8 +1,7 @@
 <script setup>
-import MainInfo from "../../components/Containers/Admin/MainInfo.vue";
+import MainInfo from "@/components/Containers/MainInfo.vue";
 import injuryBody from "@assets/images/injury-body.png";
-import { AlertTriangle, TrendingUp, Clock, Stethoscope } from "lucide-vue-next";
-import iconAten from "@assets/icons/14.svg";
+import { AlertTriangle, TrendingUp, Clock, Stethoscope, AlertCircle } from "lucide-vue-next";
 
 const stats = [
     { label: "Всего травм", icon: AlertTriangle, color: "text-primary-500", border: "border-primary-500", value: 4 },
@@ -70,7 +69,7 @@ const injuries = [
                 <h2 class="font-medium text-gray-900">Карта состояния спортсмена</h2>
                 <div class="flex gap-3 p-4 rounded-lg bg-green-100">
                     <div class="w-10 h-10 flex items-center justify-center rounded-md bg-green-200">
-                        <iconAten class="w-6 h-6 text-green-500" />
+                        <AlertCircle :class="['w-6 h-6 text-green-500']" />
                     </div>
                     <div>
                         <div class="text-sm text-muted-color">У спортсмена отмечается текущая боль в области:</div>

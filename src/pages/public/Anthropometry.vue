@@ -1,90 +1,8 @@
 <script setup>
-import { onMounted, ref } from "vue";
-import { Chart as ChartJS, Title, Tooltip, Legend, ArcElement, BarElement, CategoryScale, LinearScale } from "chart.js";
-import { Pie, Bar, Doughnut } from "vue-chartjs";
-import ChartDataLabels from "chartjs-plugin-datalabels";
-import MainInfo from "@/components/Containers/Admin/MainInfo.vue";
+import MainInfo from "@/components/Containers/MainInfo.vue";
 import iconBody from "@assets/images/body.svg";
-
-ChartJS.register(Title, Tooltip, Legend, ArcElement, BarElement, CategoryScale, LinearScale, ChartDataLabels);
-
-const chartMassData = {
-    labels: ["Масса мышц, в %", "Масса жира, в %"],
-    datasets: [
-        {
-            data: [45.6, 18.9],
-            backgroundColor: ["#078ad2", "#d32f2f"],
-            borderWidth: 0,
-            cutout: "50%",
-        },
-    ],
-};
-const chartMassOptions = {
-    responsive: true,
-    plugins: {
-        legend: {
-            position: "bottom",
-        },
-        datalabels: {
-            color: "#FFF",
-            anchor: "center",
-            align: "center",
-            font: {
-                weight: "bold",
-                size: 10,
-            },
-            formatter: (value) => value,
-        },
-    },
-};
-
-const chartSkinfoldData = {
-    labels: ["на спине под лапаткой", "на трицепсе", "на бицепсе", "на предплечье", "на животе", "на бедре", "на голени", "на груди (у мужчин)"],
-    datasets: [
-        {
-            label: "Толщина (мм)",
-            data: [6.5, 14, 5.5, 4.5, 8.0, 10.5, 12, "-"],
-            backgroundColor: "#D32F2F",
-        },
-    ],
-};
-const chartSkinfoldOptions = {
-    responsive: true,
-    plugins: {
-        legend: {
-            position: "bottom",
-        },
-        datalabels: {
-            color: "#FFF",
-            anchor: "center",
-            align: "center",
-            font: {
-                weight: "bold",
-                size: 10,
-            },
-            formatter: (value) => value,
-        },
-    },
-};
-
-const chartOptions = {
-    responsive: true,
-    plugins: {
-        legend: {
-            position: "bottom",
-        },
-        datalabels: {
-            color: "#172554",
-            anchor: "end",
-            align: "top",
-            font: {
-                weight: "bold",
-                size: 12,
-            },
-            formatter: (value) => value,
-        },
-    },
-};
+import ChartSkinfold from "@/components/Charts/Anthropometry/ChartSkinfold.vue";
+import ChartMass from "@/components/Charts/Anthropometry/ChartMass.vue";
 </script>
 
 <template>
@@ -128,14 +46,11 @@ const chartOptions = {
                 </div>
                 <!-- График процента -->
                 <div class="row-start-1 row-span-2 col-start-5 col-span-2 bg-white rounded-xl shadow-card p-4 flex flex-col items-center">
-                    <Doughnut :data="chartMassData" :options="chartMassOptions" />
+                    <ChartMass />
                 </div>
             </div>
             <div class="grid gap-4 md:grid-cols-2">
-                <div class="bg-white rounded-xl shadow-card p-4">
-                    <h3 class="font-medium text-gray-900">Кожно-жировые складки</h3>
-                    <Bar :data="chartSkinfoldData" :options="chartSkinfoldOptions" />
-                </div>
+                <ChartSkinfold />
                 <div class="bg-white rounded-xl shadow-card p-4">
                     <h3 class="font-medium text-gray-900">Обхваты</h3>
                     <div class="flex gap-4 justify-between">

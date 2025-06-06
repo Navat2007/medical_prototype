@@ -1,7 +1,8 @@
 <script setup>
 import { ref } from "vue";
-// import Indicator from "./../components/Containers/Admin/Indicator.vue";
-import { Droplet, LineChart, Info, CheckCircle2, AlertCircle } from "lucide-vue-next";
+import Indicator from "@/components/Containers/Indicator.vue";
+import MainInfo from "@/components/Containers/MainInfo.vue";
+import { Droplet, LineChart } from "lucide-vue-next";
 
 const activeTab = ref("summary");
 const tabs = [
@@ -9,8 +10,6 @@ const tabs = [
     { value: "history", label: "История", icon: LineChart },
 ];
 
-const tab = ref("summary");
-const selectedGroup = ref("biochem");
 const today = "05.06.2025";
 
 const summary = {
@@ -103,7 +102,6 @@ const summary = {
             <div class="bg-white p-4 rounded-xl shadow-card">
                 <MainInfo />
             </div>
-
             <div class="bg-white rounded-xl shadow-card p-4">
                 <div class="mb-6 flex flex-wrap gap-2">
                     <button
@@ -121,7 +119,7 @@ const summary = {
                 </div>
 
                 <div v-if="activeTab === 'summary'">
-                    <div class="grid grid-cols-3 gap-2">
+                    <div class="grid md:grid-cols-3 gap-2">
                         <Indicator v-for="marker in summary.biochem" :key="marker.name" :data="marker" />
                     </div>
                 </div>
