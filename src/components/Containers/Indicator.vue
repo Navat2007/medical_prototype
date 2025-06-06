@@ -1,7 +1,7 @@
 <template>
-    <div class="flex items-center justify-between px-4 py-3 border rounded bg-gray-50">
+    <div class="flex items-center justify-between p-4 rounded-xl shadow-card">
         <div>
-            <div class="font-semibold text-gray-800 flex items-center gap-1">
+            <div class="font-semibold text-gray-900 flex items-center gap-1">
                 {{ data.name }}
                 <div class="relative group inline-block text-gray-400 cursor-pointer">
                     <Info class="w-4 h-4" />
@@ -14,7 +14,7 @@
             <div class="text-xs text-gray-500">Норма: {{ data.norm[0] }}–{{ data.norm[1] }} {{ data.unit }}</div>
         </div>
         <div class="flex items-center gap-2">
-            <span class="text-sm font-semibold text-gray-800"> {{ data.value }} {{ data.unit }} </span>
+            <span class="text-base font-semibold text-gray-900"> {{ data.value }} {{ data.unit }} </span>
             <component
                 :is="data.value < data.norm[0] || data.value > data.norm[1] ? AlertCircle : CheckCircle2"
                 :class="data.value < data.norm[0] || data.value > data.norm[1] ? 'text-red-500' : 'text-green-500'"

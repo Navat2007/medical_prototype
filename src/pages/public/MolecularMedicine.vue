@@ -345,22 +345,22 @@ const items = {
                     <h3 class="font-medium text-gray-900">Патогенные варианты нуклеотидной последовательности</h3>
                     <p class="text-gray-600 text-sm mb-2">Являющиеся вероятной причиной заболевания</p>
                     <div class="w-full overflow-auto">
-                        <table class="table-auto w-full text-sm border border-gray-300">
-                            <thead class="bg-gray-100">
+                        <table class="min-w-full text-sm text-left border">
+                            <thead class="bg-gray-50">
                                 <tr>
-                                    <th class="border px-2 py-1 font-normal">Ген</th>
-                                    <th class="border px-2 py-1 font-normal">Положение (GRCh38/hg38)</th>
-                                    <th class="border px-2 py-1 font-normal">Генотип</th>
-                                    <th class="border px-2 py-1 font-normal">Экзон</th>
-                                    <th class="border px-2 py-1 font-normal">Вариант</th>
-                                    <th class="border px-2 py-1 font-normal">Эффект</th>
-                                    <th class="border px-2 py-1 font-normal">Частота*</th>
-                                    <th class="border px-2 py-1 font-normal">Класс патогенности**</th>
+                                    <th class="p-2 border">Ген</th>
+                                    <th class="p-2 border">Положение (GRCh38/hg38)</th>
+                                    <th class="p-2 border">Генотип</th>
+                                    <th class="p-2 border">Экзон</th>
+                                    <th class="p-2 border">Вариант</th>
+                                    <th class="p-2 border">Эффект</th>
+                                    <th class="p-2 border">Частота*</th>
+                                    <th class="p-2 border">Класс патогенности**</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td colspan="8" class="border text-center py-2 text-gray-900">Не обнаружено</td>
+                                    <td colspan="8" class="text-center p-2 border">Не обнаружено</td>
                                 </tr>
                             </tbody>
                         </table>
@@ -370,46 +370,46 @@ const items = {
                     <h3 class="font-medium text-gray-900">Вероятно патогенные варианты</h3>
                     <p class="text-gray-600 text-sm mb-2">Возможная причина заболевания</p>
                     <div class="w-full overflow-auto">
-                        <table class="table-auto w-full text-sm border border-gray-300">
-                            <thead class="bg-gray-100">
+                        <table class="min-w-full text-sm text-left border">
+                            <thead class="bg-gray-50">
                                 <tr>
-                                    <th class="border px-2 py-1 font-normal">Ген</th>
-                                    <th class="border px-2 py-1 font-normal">Положение (GRCh38/hg38)</th>
-                                    <th class="border px-2 py-1 font-normal">Генотип</th>
-                                    <th class="border px-2 py-1 font-normal">Экзон</th>
-                                    <th class="border px-2 py-1 font-normal">Вариант</th>
-                                    <th class="border px-2 py-1 font-normal">Эффект</th>
-                                    <th class="border px-2 py-1 font-normal">Частота*</th>
-                                    <th class="border px-2 py-1 font-normal">Класс патогенности**</th>
+                                    <th class="p-2 border">Ген</th>
+                                    <th class="p-2 border">Положение (GRCh38/hg38)</th>
+                                    <th class="p-2 border">Генотип</th>
+                                    <th class="p-2 border">Экзон</th>
+                                    <th class="p-2 border">Вариант</th>
+                                    <th class="p-2 border">Эффект</th>
+                                    <th class="p-2 border">Частота*</th>
+                                    <th class="p-2 border">Класс патогенности**</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td colspan="8" class="text-center py-2 text-gray-500">Не обнаружено</td>
+                                    <td colspan="8" class="text-center p-2 border">Не обнаружено</td>
                                 </tr>
                             </tbody>
                         </table>
                     </div>
                 </div>
                 <div>
-                    <h3 class="font-medium text-gray-900">Варианты неопределённого значения, имеющие возможное отношение к фенотипу</h3>
+                    <h3 class="font-medium text-gray-900 mb-2">Варианты неопределённого значения, имеющие возможное отношение к фенотипу</h3>
                     <div class="w-full overflow-auto">
-                        <table class="table-auto w-full text-sm border border-gray-300 mb-2">
-                            <thead class="bg-gray-100">
+                        <table class="min-w-full text-sm text-left border">
+                            <thead class="bg-gray-50">
                                 <tr>
-                                    <th class="border px-2 py-1 font-normal">Ген</th>
-                                    <th class="border px-2 py-1 font-normal">Положение (GRCh38/hg38)</th>
-                                    <th class="border px-2 py-1 font-normal">Генотип</th>
-                                    <th class="border px-2 py-1 font-normal">Экзон</th>
-                                    <th class="border px-2 py-1 font-normal">Вариант</th>
-                                    <th class="border px-2 py-1 font-normal">Эффект</th>
-                                    <th class="border px-2 py-1 font-normal">Частота*</th>
-                                    <th class="border px-2 py-1 font-normal">Класс патогенности**</th>
+                                    <th class="p-2 border">Ген</th>
+                                    <th class="p-2 border">Положение (GRCh38/hg38)</th>
+                                    <th class="p-2 border">Генотип</th>
+                                    <th class="p-2 border">Экзон</th>
+                                    <th class="p-2 border">Вариант</th>
+                                    <th class="p-2 border">Эффект</th>
+                                    <th class="p-2 border">Частота*</th>
+                                    <th class="p-2 border">Класс патогенности**</th>
                                 </tr>
                             </thead>
                             <tbody>
                                 <tr>
-                                    <td colspan="8" class="text-center py-2 text-gray-500">Не обнаружено</td>
+                                    <td colspan="8" class="text-center p-2 border">Не обнаружено</td>
                                 </tr>
                             </tbody>
                         </table>
