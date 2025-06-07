@@ -168,7 +168,7 @@ import { Activity, HeartPulse, Utensils, Moon, StretchHorizontal, AlertCircle } 
                 <h2 class="font-medium text-2xl text-gray-900">Диетология</h2>
                 <p>Анализ нутриентов, метаболизма и лабораторных показателей</p>
             </div>
-            <div class="grid md:grid-cols-2 gap-4">
+            <div class="grid md:grid-cols-3 gap-4">
                 <!-- Условия теста -->
                 <div class="col-span-full content-start bg-white p-4 rounded-xl shadow-card grid gap-4">
                     <h3 class="font-medium text-gray-900">Условия теста</h3>
@@ -203,34 +203,40 @@ import { Activity, HeartPulse, Utensils, Moon, StretchHorizontal, AlertCircle } 
                     </div>
                 </div>
                 <!-- Субстраты -->
-                <div class="flex flex-col gap-4 bg-white p-4 rounded-xl shadow-card">
-                    <h3 class="row-span-full font-medium text-gray-900">Субстраты</h3>
-                    <div class="">
+                <div class="col-span-2 grid md:grid-cols-4 gap-4 bg-white p-4 rounded-xl shadow-card">
+                    <h3 class="col-span-full font-medium text-gray-900">Субстраты</h3>
+                    <div class="col-span-3">
                         <ChartEnergy />
                     </div>
-                    <div class="grid grid-cols-3 gap-4">
-                        <div class="flex flex-col items-center p-3 rounded-xl shadow-card bg-secondary-100">
-                            <div class="w-3 h-3 rounded-full mb-1 bg-secondary-500"></div>
-                            <p class="text-xs text-center text-muted-color">Липиды</p>
+                    <div class="grid gap-4">
+                        <div class="flex flex-col items-center p-2 rounded-xl shadow-card bg-secondary-100">
+                            <div class="flex items-center gap-1">
+                                <div class="w-3 h-3 rounded-full bg-secondary-500"></div>
+                                <p class="text-xs text-center text-muted-color">Липиды</p>
+                            </div>
                             <p class="text-lg font-semibold text-center text-gray-900">1077</p>
                             <p class="text-xs text-center text-muted-color">ккал / 55.7%</p>
                         </div>
                         <div class="flex flex-col items-center p-3 rounded-xl shadow-card bg-[#ecffed]">
-                            <div class="w-3 h-3 rounded-full mb-1 bg-[#66BB6A]"></div>
-                            <p class="text-xs text-center text-muted-color">Углеводы</p>
+                            <div class="flex items-center gap-1">
+                                <div class="w-3 h-3 rounded-full bg-[#66BB6A]"></div>
+                                <p class="text-xs text-center text-muted-color">Углеводы</p>
+                            </div>
                             <p class="text-lg font-semibold text-center text-gray-900">895</p>
                             <p class="text-xs text-center text-muted-color">ккал / 44.3%</p>
                         </div>
                         <div class="flex flex-col items-center p-3 rounded-xl shadow-card bg-primary-100">
-                            <div class="w-3 h-3 rounded-full mb-1 bg-primary-500"></div>
-                            <p class="text-xs text-center text-muted-color">Белки</p>
+                            <div class="flex items-center gap-1">
+                                <div class="w-3 h-3 rounded-full bg-primary-500"></div>
+                                <p class="text-xs text-center text-muted-color">Белки</p>
+                            </div>
                             <p class="text-lg font-semibold text-center text-gray-900">0</p>
                             <p class="text-xs text-center text-muted-color">ккал / 0%</p>
                         </div>
                     </div>
                 </div>
                 <div class="bg-white p-4 rounded-xl shadow-card">
-                    <div class="max-w-100 mx-auto">
+                    <div class="max-w-90 mx-auto">
                         <ChartNutrition />
                     </div>
                 </div>
@@ -238,7 +244,7 @@ import { Activity, HeartPulse, Utensils, Moon, StretchHorizontal, AlertCircle } 
             <!-- Метаболизм -->
             <div class="bg-white p-4 rounded-xl shadow-card">
                 <h3 class="font-medium text-gray-900 mb-4">Метаболизм</h3>
-                <div class="md:flex gap-4 justify-center">
+                <div class="md:flex gap-4">
                     <div>
                         <VueSpeedometer
                             :value="1972"
@@ -266,22 +272,24 @@ import { Activity, HeartPulse, Utensils, Moon, StretchHorizontal, AlertCircle } 
                         />
                     </div>
                     <div class="flex flex-col gap-4">
-                        <div>
-                            <div class="text-sm text-muted-color">RMR</div>
-                            <div class="flex items-baseline">
-                                <span class="text-2xl font-semibold text-primary-500">1972</span>
-                                <span class="ml-1 text-sm text-[#6B7280]">ккал/день</span>
+                        <div class="flex gap-4">
+                            <div>
+                                <div class="text-sm text-muted-color">RMR</div>
+                                <div class="flex items-baseline">
+                                    <span class="text-2xl font-semibold text-primary-500">1972</span>
+                                    <span class="ml-1 text-sm text-[#6B7280]">ккал/день</span>
+                                </div>
+                                <div class="text-xs text-primary-500">Быстрый метаболизм</div>
                             </div>
-                            <div class="text-xs text-primary-500">Быстрый метаболизм</div>
-                        </div>
-                        <div>
-                            <div class="text-sm text-muted-color">RQ</div>
-                            <div class="flex items-baseline">
-                                <span class="text-2xl font-semibold text-primary-500">0.84</span>
+                            <div>
+                                <div class="text-sm text-muted-color">RQ</div>
+                                <div class="flex items-baseline">
+                                    <span class="text-2xl font-semibold text-primary-500">0.84</span>
+                                </div>
+                                <div class="text-xs text-primary-500">утилизация жиров и углеводов</div>
                             </div>
-                            <div class="text-xs text-primary-500">утилизация жиров и углеводов</div>
                         </div>
-                        <div class="p-3 rounded-lg bg-primary-100">
+                        <div class="p-3 rounded-lg bg-primary-100 max-w-lg">
                             <p class="text-xs text-primary-500">
                                 RMR (Resting Metabolic Rate) - скорость метаболизма в состоянии покоя. RQ (Respiratory Quotient) - дыхательный коэффициент, отражающий тип
                                 используемого субстрата.

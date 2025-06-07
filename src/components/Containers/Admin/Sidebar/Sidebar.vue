@@ -169,6 +169,7 @@ function toggleSidebar() {
             </div>
         </div>
 
+        <!-- Sidebar Toggle -->
         <div
             class="ml-auto flex-none flex overflow-hidden bg-primary-500 text-white m-1 p-1 rounded-xl shadow-card hover:shadow-cardHover delay-200 duration-300 cursor-pointer"
             :class="{

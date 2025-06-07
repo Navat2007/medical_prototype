@@ -1,7 +1,7 @@
 <template>
     <div class="relative w-full">
         <Doughnut :data="chartNutritionData" :options="chartNutritionOptions" />
-        <div class="absolute inset-0 flex flex-col items-center justify-center">
+        <div class="absolute inset-0 flex flex-col items-center justify-center mb-10">
             <p class="text-xl font-medium text-gray-900">1156</p>
             <span class="ml-1 text-sm text-gray-600">ккал</span>
         </div>
