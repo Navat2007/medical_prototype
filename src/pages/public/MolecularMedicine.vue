@@ -1,6 +1,6 @@
 <script setup>
 import { ref } from "vue";
-import { Activity, Dumbbell, Bone, Apple, AlertCircle, Brain, LucidePill } from "lucide-vue-next";
+import { Activity, Dumbbell, Bone, Apple, AlertCircle, Brain, LucidePill, Coffee, Info } from "lucide-vue-next";
 import MainInfo from "@/components/Containers/MainInfo.vue";
 import GeneticTable from "@components/Tables/MolecularMedicine/GeneticTable.vue";
 import GeneticPharmTable from "@components/Tables/MolecularMedicine/GeneticPharmTable.vue";
@@ -369,12 +369,6 @@ const expanded = ref(false);
                 <MainInfo />
             </div>
 
-            <!-- Дозировка кофеина -->
-            <div class="flex flex-col gap-4 bg-white p-4 rounded-xl shadow-card">
-                <h3 class="font-medium text-gray-900">Дозировка кофеина в сутки</h3>
-                <img :src="CoffeeImage" class="max-w-xs w-full" />
-            </div>
-
             <div class="grid md:grid-cols-4 gap-4">
                 <!-- Технический отчет -->
                 <div class="md:col-span-3 bg-white p-4 rounded-xl shadow-card flex flex-col gap-4">
@@ -608,33 +602,56 @@ const expanded = ref(false);
                         к ожирению, дефициту витаминов, непереносимости продуктов и другим диет-зависимым состояниям.
                     </p>
                     <GeneticTable :items="items['Питание и ожирение']" />
-                    <div class="flex flex-col items-center text-center mt-4">
-                        <h3 class="font-medium text-gray-900">Метаболизм кофеина</h3>
-                        <VueSpeedometer
-                            :value="1972"
-                            :minValue="0"
-                            :maxValue="3000"
-                            :segments="3"
-                            :segmentColors="['#ff9999', '#ffe699', '#a9d18e']"
-                            :currentValueText="'CYP1A2-генотип АА'"
-                            :customSegmentLabels="[
-                                {
-                                    text: 'Медленный',
-                                    position: 'INSIDE',
-                                    color: '#555',
-                                },
-                                {
-                                    text: 'Средний',
-                                    position: 'INSIDE',
-                                    color: '#555',
-                                },
-                                {
-                                    text: 'Быстрый',
-                                    position: 'INSIDE',
-                                    color: '#555',
-                                },
-                            ]"
-                        />
+                    <!-- Дозировка кофеина -->
+                    <div class="flex flex-col gap-4 mt-6">
+                        <div class="flex items-center gap-4">
+                            <Coffee :class="['w-6 h-6 text-primary-500']" />
+                            <div>
+                                <h3 class="font-medium text-gray-900">Метаболизм кофеина</h3>
+                                <p class="text-sm">Генетический анализ скорости метаболизма</p>
+                            </div>
+                        </div>
+                        <div class="flex gap-4 p-4 rounded-lg bg-primary-100 max-w-xl">
+                            <div class="w-10 h-10 flex items-center justify-center rounded-md bg-primary-200">
+                                <Info :class="['w-6 h-6 text-primary-500']" />
+                            </div>
+                            <div>
+                                <h3 class="font-medium text-base text-gray-900">Рекомендации по дозировке:</h3>
+                                <ul>
+                                    <li class="text-sm">
+                                        Общая безопасная доза для взрослых:
+                                        <span class="inline-block rounded-lg text-sm px-2 bg-primary-200 text-primary-800">до 3–6 мг/кг массы тела в сутки</span>
+                                    </li>
+                                    <li class="text-sm">
+                                        Для быстрых метаболизаторов:
+                                        <span class="inline-block rounded-lg text-sm px-2 bg-primary-200 text-primary-800">возможна переносимость до 7–9 мг/кг</span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                        <div class="grid md:grid-cols-2 gap-4">
+                            <div class="bg-white p-4 rounded-xl shadow-card">
+                                <h3 class="font-medium text-base text-gray-900">Персональный расчет:</h3>
+                                <p>спортсмен 55 кг, <span class="inline-block rounded-lg text-sm px-2 bg-primary-200 text-primary-800">быстрый метаболизатор</span></p>
+                                <ul class="grid gap-4">
+                                    <li class="flex flex-col gap-2 py-2 border-b border-gray-200">
+                                        <p class="text-xs text-muted-color">Потенциально безопасная доза:</p>
+                                        <p class="font-medium text-gray-900 max-w-3xl">7 мг/кг = 420 мг кофеина в сутки</p>
+                                    </li>
+                                    <li class="flex flex-col gap-2 py-2 border-b border-gray-200">
+                                        <p class="text-xs text-muted-color">Эквивалент:</p>
+                                        <p class="font-medium flex flex-col text-gray-900 max-w-3xl">
+                                            <span>4–5 чашек кофе (по 90–100 мг кофеина)</span>
+                                            <span>или 2 банки энергетика + 1 чашка кофе.</span>
+                                        </p>
+                                    </li>
+                                </ul>
+                            </div>
+                            <div class="text-center bg-white p-4 rounded-xl shadow-card">
+                                <img :src="CoffeeImage" class="max-w-sm w-full mx-auto" />
+                                <p class="text-xs text-muted-color">Рисунок: Дозировка кофеина в сутки.</p>
+                            </div>
+                        </div>
                     </div>
                 </div>
 
