@@ -151,7 +151,7 @@ const router = createRouter({
 router.beforeEach((to, from, next) => {
     const auth = useAuthStore();
     const { setSidebarState } = useSidebarStore();
-    const DEFAULT_TITLE = auth.user?.company_name || "Федеральный регистр здоровья российских спортсменов";
+    const DEFAULT_TITLE = auth.user?.company_name || "ФГИС МИАС";
 
     document.title = to.meta.title + " - " + DEFAULT_TITLE || DEFAULT_TITLE;
 

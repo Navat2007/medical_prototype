@@ -48,8 +48,7 @@ const { toggleSidebar } = useSidebarStore();
             </div>
             <div class="flex-auto flex items-center gap-3 justify-between">
                 <h1 class="text-gray-900 flex flex-col flex-auto">
-                    <span class="font-medium uppercase md:text-lg">Федеральный регистр</span>
-                    <span class="text-xs md:text-sm">здоровья российских спортсменов</span>
+                    <span class="font-medium uppercase md:text-lg">ФГИС МИАС</span>
                 </h1>
                 <img class="flex-none" :src="logo" alt="" width="108" />
             </div>
